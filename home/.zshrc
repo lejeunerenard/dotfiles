@@ -5,7 +5,8 @@ ZSH=$HOME/.homesick/repos/oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell"
+#ZSH_THEME="daveverwer"
+#ZSH_THEME="robbyrussell"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -43,6 +44,9 @@ ZSH_THEME="robbyrussell"
 plugins=(git cpanm perl)
 
 source $ZSH/oh-my-zsh.sh
+
+# Include custom theme
+source $HOME/.homesick/repos/dotfiles/themes/ljr.zsh-theme
 
 # Customize to your needs...
 export PATH=$PATH:/home/polok/perl5/bin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
