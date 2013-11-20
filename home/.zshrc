@@ -58,6 +58,6 @@ alias la='ls -A'
 . $HOME/.homesick/repos/homeshick/homeshick.sh
 
 # Setup Z
-. $HOME/scripts/z/z.sh
+. $HOME/.homesick/repos/z/z.sh
 
 fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
