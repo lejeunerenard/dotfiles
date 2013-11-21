@@ -46,6 +46,8 @@ plugins=(git cpanm perl)
 source $ZSH/oh-my-zsh.sh
 
 # Include custom theme
+# Override default $HOME/.hostAliases
+#HOST_ALIASES=$HOME/.aliashost 
 source $HOME/.homesick/repos/dotfiles/themes/ljr.zsh-theme
 
 # Customize to your needs...
