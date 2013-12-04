@@ -67,6 +67,6 @@ alias la='ls -A'
 . $HOME/.homesick/repos/z/z.sh
 
 # DBICM Wrapper
-. $HOME/Programming/dbic-migration-env/dbicm-env.sh
+. $HOME/.homesick/repos/dbic-migration-env/dbicm-env.sh
 
 fpath=($HOME/.homesick/repos/homeshick/completions $fpath)

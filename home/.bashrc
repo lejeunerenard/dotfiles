@@ -120,4 +120,4 @@ export PERL_MM_OPT="INSTALL_BASE=/home/polok/perl5";
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 
 # DBICM Wrapper
-. $HOME/Programming/dbic-migration-env/dbicm-env.sh
+. $HOME/.homesick/repos/dbic-migration-env/dbicm-env.sh
