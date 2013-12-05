@@ -66,6 +66,9 @@ alias la='ls -A'
 # Setup Z
 . $HOME/.homesick/repos/z/z.sh
 
+# Git permissions
+. $HOME/.homesick/repos/dotfiles/git-perm.sh
+
 # DBICM Wrapper
 . $HOME/.homesick/repos/dbic-migration-env/dbicm-env.sh
 
