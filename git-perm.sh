@@ -3,17 +3,37 @@
 _git_permissions() {
    if [[ "$*" == /var/www/sites/* && ( $HOST == 'highsite-web.com' || $HOST == 'highsite-dev.com' ) ]]
    then
+      # Latest Change file
+      : ${GIT_PERM_CACHE:=$HOME/.git-perm}
+      # Touch file to avoid errors
+      [ ! -e $GIT_PERM_CACHE ] && touch $GIT_PERM_CACHE
+
+      # Get Sites folder name
       SITES_FOLDER=$(echo $* | sed -e 's/\/var\/www\/sites\///g' | sed -e 's/\/.*//g')
+
+      # Check if Highsite
       if [ -d /var/www/sites/$SITES_FOLDER/xm_client/ ]
       then
-         sudo find /var/www/sites/$SITES_FOLDER -type d -name ".git" -prune -o -name ".*" -prune -o -exec chown www-data.admins {} \;
-         sudo find /var/www/sites/$SITES_FOLDER -type d -name ".git" -prune -o -name ".*" -prune -o -exec chmod 770 {} \;
 
-         sudo find /var/www/sites/$SITES_FOLDER/.git -exec chown seanz.admins {} \;
-         sudo find /var/www/sites/$SITES_FOLDER/.git -exec chmod 770 {} \;
+         #echo "First: "$(find /var/www/sites/$SITES_FOLDER/ -name ".git" -prune -o -type f -printf "%C@\n" | sort -nr | head -1 | sed -e 's/\..*//g')
+         #echo "Second: "$(awk -v site=$SITES_FOLDER 'tolower($1) == tolower(site) { print substr($0, index($0,$2)) }' $GIT_PERM_CACHE)
 
-         sudo find /var/www/sites/$SITES_FOLDER -name ".*" -exec chmod 770 {} \;
-         sudo find /var/www/sites/$SITES_FOLDER -name ".*" -exec chown seanz.admins {} \;
+         if [ $(grep -vqi '^'$SITES_FOLDER'\s' $GIT_PERM_CACHE) ] || [[ $(find /var/www/sites/$SITES_FOLDER/ -name ".git" -prune -o -type f -printf "%C@\n" | sort -nr | head -1 | sed -e 's/\..*//g') -gt $(awk -v site=$SITES_FOLDER 'tolower($1) == tolower(site) { print substr($0, index($0,$2)) }' $GIT_PERM_CACHE) ]]
+         then
+            echo "Setting Permissions..."
+            sudo find /var/www/sites/$SITES_FOLDER -type d -name ".git" -prune -o -name ".*" -prune -o -exec chown www-data.admins {} \;
+            sudo find /var/www/sites/$SITES_FOLDER -type d -name ".git" -prune -o -name ".*" -prune -o -exec chmod 770 {} \;
+   
+            sudo find /var/www/sites/$SITES_FOLDER/.git -exec chown seanz.admins {} \;
+            sudo find /var/www/sites/$SITES_FOLDER/.git -exec chmod 770 {} \;
+   
+            sudo find /var/www/sites/$SITES_FOLDER -name ".*" -exec chmod 770 {} \;
+            sudo find /var/www/sites/$SITES_FOLDER -name ".*" -exec chown seanz.admins {} \;
+   
+            sudo find /var/www/sites/$SITES_FOLDER -name ".htaccess" -exec chown www-data.admins {} \;
+            awk '!/'$SITES_FOLDER'/' $GIT_PERM_CACHE > temp && mv temp $GIT_PERM_CACHE
+            echo $SITES_FOLDER" "$(find /var/www/sites/$SITES_FOLDER/ -name ".git" -prune -o -type f -printf "%C@\n" | sort -nr | head -1 | sed -e 's/\..*//g') >> $GIT_PERM_CACHE
+         fi
       fi
    fi
 }
