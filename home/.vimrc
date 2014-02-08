@@ -22,3 +22,13 @@ filetype plugin indent on     " required!
 :set expandtab
 :syntax on
 :set number
+
+:filetype on
+:au BufNewFile,BufRead *.tt set filetype=html 
+
+" Fugitive
+if has("autocmd")
+endif
+
+" Git branch
+set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
