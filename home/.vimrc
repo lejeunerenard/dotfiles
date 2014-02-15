@@ -47,6 +47,9 @@ let g:syntastic_mode_map = { 'mode': 'active',
 if !has('gui_running')
    " Compatibility for Terminal
    let g:solarized_termtrans=1
+   if ($TERM == 'xterm') 
+      set t_Co=256
+   endif
 
    if (&t_Co >= 256 || $TERM == 'xterm-256color')
       " Do nothing, it handles itself.
