@@ -14,6 +14,7 @@ Bundle 'gmarik/vundle'
 " Original repos on GitHub
 Bundle 'tpope/vim-fugitive'
 Bundle 'kien/ctrlp.vim'
+Bundle 'mattn/emmet-vim'
 
 filetype plugin indent on     " required!
 
