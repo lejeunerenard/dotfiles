@@ -39,7 +39,7 @@ set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 " Syntastic Settings
 let g:syntastic_mode_map = { 'mode': 'active',
    \ 'active_filetypes': [],
-   \ 'passive_filetypes': [] }
+   \ 'passive_filetypes': ['perl'] }
 " Takes so freakin long. Ill have to look into what is causing it.
 "let g:syntastic_check_on_open = 1
 
