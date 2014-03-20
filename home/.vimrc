@@ -66,3 +66,8 @@ if !has('gui_running')
 endif
 set background=dark
 colorscheme solarized
+
+" Perl
+" Set manual command to use perldoc for perl files
+autocmd FileType perl :noremap K :!perldoc <cword>
+   \ <bar><bar> perldoc -f <cword><cr>
