@@ -17,6 +17,7 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'mattn/emmet-vim'
 Bundle 'scrooloose/syntastic'
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'scrooloose/nerdtree'
 
 filetype plugin indent on     " required!
 
@@ -28,6 +29,10 @@ filetype plugin indent on     " required!
 
 :filetype on
 :au BufNewFile,BufRead *.tt set filetype=html 
+
+" Nerd Tree
+autocmd vimenter * if !argc() | NERDTree | endif
+map <C-n> :NERDTreeToggle<CR>
 
 " Fugitive
 if has("autocmd")
