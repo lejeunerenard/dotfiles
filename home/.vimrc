@@ -14,6 +14,7 @@ Bundle 'gmarik/vundle'
 " Original repos on GitHub
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-unimpaired'
+Bundle 'tpope/vim-repeat'
 Bundle 'kien/ctrlp.vim'
 Bundle 'mattn/emmet-vim'
 Bundle 'scrooloose/syntastic'
