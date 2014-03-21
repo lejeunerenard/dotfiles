@@ -23,14 +23,20 @@ Bundle 'scrooloose/nerdtree'
 
 filetype plugin indent on     " required!
 
+" General settings
+
 :set tabstop=3
 :set shiftwidth=3
 :set expandtab
 :syntax on
 :set number
+:set hlsearch
+:set incsearch
 
 :filetype on
 :au BufNewFile,BufRead *.tt set filetype=html 
+
+" --- Plugins ---
 
 " Nerd Tree
 autocmd vimenter * if !argc() | NERDTree | endif
