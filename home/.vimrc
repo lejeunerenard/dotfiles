@@ -40,6 +40,7 @@ set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 let g:syntastic_mode_map = { 'mode': 'active',
    \ 'active_filetypes': [],
    \ 'passive_filetypes': ['perl'] }
+"let g:syntastic_perl_checkers = ['perlcritic']
 " Takes so freakin long. Ill have to look into what is causing it.
 "let g:syntastic_check_on_open = 1
 
@@ -61,3 +62,6 @@ if !has('gui_running')
 endif
 set background=dark
 colorscheme solarized
+
+" Open markdown files with Chrome.
+autocmd BufEnter *.md exe 'noremap <F5> :!chromium-browser %:p<CR>'
