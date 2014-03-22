@@ -13,21 +13,35 @@ Bundle 'gmarik/vundle'
 "
 " Original repos on GitHub
 Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-unimpaired'
+Bundle 'tpope/vim-repeat'
 Bundle 'kien/ctrlp.vim'
 Bundle 'mattn/emmet-vim'
+Bundle 'tommcdo/vim-exchange'
 Bundle 'scrooloose/syntastic'
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'scrooloose/nerdtree'
 
 filetype plugin indent on     " required!
+
+" General settings
 
 :set tabstop=3
 :set shiftwidth=3
 :set expandtab
 :syntax on
 :set number
+:set hlsearch
+:set incsearch
 
 :filetype on
 :au BufNewFile,BufRead *.tt set filetype=html 
+
+" --- Plugins ---
+
+" Nerd Tree
+autocmd vimenter * if !argc() | NERDTree | endif
+map <C-n> :NERDTreeToggle<CR>
 
 " Fugitive
 if has("autocmd")
@@ -65,3 +79,8 @@ colorscheme solarized
 
 " Open markdown files with Chrome.
 autocmd BufEnter *.md exe 'noremap <F5> :!chromium-browser %:p<CR>'
+
+" Perl
+" Set manual command to use perldoc for perl files
+autocmd FileType perl :noremap K :!perldoc <cword>
+   \ <bar><bar> perldoc -f <cword><cr>
