@@ -37,6 +37,8 @@ filetype plugin indent on     " required!
 :filetype on
 :au BufNewFile,BufRead *.tt set filetype=html 
 
+:set splitright " Natural vertical spliting
+
 " --- Plugins ---
 
 " Nerd Tree
