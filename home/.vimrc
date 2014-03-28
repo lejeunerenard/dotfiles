@@ -36,6 +36,7 @@ filetype plugin indent on     " required!
 
 :filetype on
 :au BufNewFile,BufRead *.tt set filetype=html 
+:set splitright " Natural vertical spliting
 
 " Detect OS
 if has("win16") || has("win32") || has("win64")
