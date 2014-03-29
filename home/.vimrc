@@ -36,6 +36,14 @@ filetype plugin indent on     " required!
 
 :filetype on
 :au BufNewFile,BufRead *.tt set filetype=html 
+:set splitright " Natural vertical spliting
+
+" Detect OS
+if has("win16") || has("win32") || has("win64")
+   let os = 'win'
+else
+   let os = substitute(system('uname'), "\n", "", "")
+endif
 
 " --- Plugins ---
 
@@ -84,3 +92,8 @@ autocmd BufEnter *.md exe 'noremap <F5> :!chromium-browser %:p<CR>'
 " Set manual command to use perldoc for perl files
 autocmd FileType perl :noremap K :!perldoc <cword>
    \ <bar><bar> perldoc -f <cword><cr>
+
+" Open markdown files with Chrome.
+if os == "Darwin"
+   autocmd BufEnter *.md exe 'noremap <F5> :!open -a "Google Chrome.app" %:p<CR>'
+endif
