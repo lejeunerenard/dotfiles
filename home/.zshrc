@@ -66,6 +66,9 @@ alias la='ls -A'
 # Setup Z
 . $HOME/.homesick/repos/z/z.sh
 
+# Setup k
+. $HOME/.homesick/repos/k/k.sh
+
 # Git permissions
 . $HOME/.homesick/repos/dotfiles/git-perm.sh
 
