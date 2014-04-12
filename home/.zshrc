@@ -41,7 +41,7 @@ ZSH=$HOME/.homesick/repos/oh-my-zsh
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git cpanm perl z bower github vagrant npm node nvm vundle)
+plugins=(git cpanm perl bower github vagrant npm node nvm vundle)
 
 source $ZSH/oh-my-zsh.sh
 
