@@ -24,19 +24,25 @@ Bundle 'scrooloose/nerdtree'
 
 filetype plugin indent on     " required!
 
-" General settings
+" --- General settings ---
 
+" Tabs
 :set tabstop=3
 :set shiftwidth=3
 :set expandtab
+
 :syntax on
 :set number
+:filetype on
+:set splitright " Natural vertical spliting
+
+" Searching
 :set hlsearch
 :set incsearch
 
-:filetype on
+
+" Syntax highlighting for Template Toolkit
 :au BufNewFile,BufRead *.tt set filetype=html 
-:set splitright " Natural vertical spliting
 
 " Detect OS
 if has("win16") || has("win32") || has("win64")
@@ -45,17 +51,14 @@ else
    let os = substitute(system('uname'), "\n", "", "")
 endif
 
-" --- Plugins ---
+" --- Plugins Settings ---
 
 " Nerd Tree
 autocmd vimenter * if !argc() | NERDTree | endif
 map <C-n> :NERDTreeToggle<CR>
 
 " Fugitive
-if has("autocmd")
-endif
-
-" Git branch
+" Git branch statusline
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
 " Syntastic Settings
@@ -85,9 +88,6 @@ endif
 set background=dark
 colorscheme solarized
 
-" Open markdown files with Chrome.
-autocmd BufEnter *.md exe 'noremap <F5> :!chromium-browser %:p<CR>'
-
 " Perl
 " Set manual command to use perldoc for perl files
 autocmd FileType perl :noremap K :!perldoc <cword>
@@ -96,4 +96,6 @@ autocmd FileType perl :noremap K :!perldoc <cword>
 " Open markdown files with Chrome.
 if os == "Darwin"
    autocmd BufEnter *.md exe 'noremap <F5> :!open -a "Google Chrome.app" %:p<CR>'
+elseif os == "win"
+   autocmd BufEnter *.md exe 'noremap <F5> :!chromium-browser %:p<CR>'
 endif
