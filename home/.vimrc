@@ -1,6 +1,6 @@
 set nocompatible
 
-filetype off   " requried!
+filetype off   " required!
 
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
@@ -36,7 +36,8 @@ filetype plugin indent on     " required!
 :syntax on
 :set number
 :filetype on
-:set splitright " Natural vertical spliting
+:set splitright " Natural vertical splitting
+:set spell
 
 " Searching
 :set hlsearch
