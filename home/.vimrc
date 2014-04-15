@@ -1,9 +1,12 @@
+" vim: foldmethod=marker
 set nocompatible
 
 filetype off   " required!
 
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
+
+" --- Plugins --- {{{1
 
 " Let Vundle manage Vundle
 "required!
@@ -26,20 +29,22 @@ Bundle 'scrooloose/nerdtree'
 
 filetype plugin indent on     " required!
 
-" --- General settings ---
+" --- General settings --- {{{1
 
-" Tabs
+" Tabs {{{2
 :set tabstop=3
 :set shiftwidth=3
 :set expandtab
 
+" Misc {{{2
 :syntax on
 :set number
 :filetype on
 :set splitright " Natural vertical splitting
 :set spell
+:set foldcolumn=3
 
-" Searching
+" Searching {{{2
 :set hlsearch
 :set incsearch
 
@@ -54,17 +59,17 @@ else
    let os = substitute(system('uname'), "\n", "", "")
 endif
 
-" --- Plugins Settings ---
+" --- Plugins Settings --- {{{1
 
-" Nerd Tree
+" Nerd Tree {{{2
 autocmd vimenter * if !argc() | NERDTree | endif
 map <C-n> :NERDTreeToggle<CR>
 
-" Fugitive
+" Fugitive {{{2
 " Git branch statusline
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
-" Syntastic Settings
+" Syntastic Settings {{{2
 let g:syntastic_mode_map = { 'mode': 'active',
    \ 'active_filetypes': [],
    \ 'passive_filetypes': ['perl'] }
@@ -72,7 +77,7 @@ let g:syntastic_mode_map = { 'mode': 'active',
 " Takes so freakin long. Ill have to look into what is causing it.
 "let g:syntastic_check_on_open = 1
 
-" Solarized
+" Solarized {{{2
 if !has('gui_running')
    " Compatibility for Terminal
    let g:solarized_termtrans=1
@@ -91,14 +96,17 @@ endif
 set background=dark
 colorscheme solarized
 
-" Perl
-" Set manual command to use perldoc for perl files
-autocmd FileType perl :noremap K :!perldoc <cword>
-   \ <bar><bar> perldoc -f <cword><cr>
-
-" Open markdown files with Chrome.
+" Open markdown files with Chrome. {{{2
 if os == "Darwin"
    autocmd BufEnter *.md exe 'noremap <F5> :!open -a "Google Chrome.app" %:p<CR>'
 elseif os == "win"
    autocmd BufEnter *.md exe 'noremap <F5> :!chromium-browser %:p<CR>'
 endif
+
+" --- Language Settings --- {{{1
+
+" Perl {{{2
+" Set manual command to use perldoc for perl files
+autocmd FileType perl :noremap K :!perldoc <cword>
+   \ <bar><bar> perldoc -f <cword><cr>
+
