@@ -26,6 +26,7 @@ Bundle 'tommcdo/vim-exchange'
 Bundle 'scrooloose/syntastic'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'scrooloose/nerdtree'
+Bundle 'jiangmiao/auto-pairs'
 
 filetype plugin indent on     " required!
 
