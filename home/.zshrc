@@ -51,7 +51,7 @@ source $ZSH/oh-my-zsh.sh
 source $HOME/.homesick/repos/dotfiles/themes/ljr.zsh-theme
 
 # Customize to your needs...
-export PATH=$PATH:/home/polok/perl5/bin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
+export PATH=$PATH:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
 # Perl local::lib
 export PERL5LIB=$HOME/perl5/lib/perl5:$PERL5LIB
