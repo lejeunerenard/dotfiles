@@ -1,6 +1,16 @@
 # Copyright (c) 2013 Sean Zellmer @lejeunerenard under GPLv2
 
 _git_permissions() {
+   if [[ $HOST == 'highsite-web.com' || $HOST == 'highsite-dev.com' ]]
+   then
+      if [ "$(git rev-parse --git-dir 2>/dev/null)" ]
+      then
+         GIT_DIR="$(git rev-parse --git-dir)"
+         sudo chown -R seanz.admins $GIT_DIR
+         sudo chmod -R 770 $GIT_DIR
+      fi
+   fi
+
    if [[ "$*" == /var/www/sites/* && ( $HOST == 'highsite-web.com' || $HOST == 'highsite-dev.com' ) ]]
    then
       # Latest Change file
