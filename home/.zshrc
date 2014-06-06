@@ -61,19 +61,19 @@ export PATH=$HOME/perl5/bin:$PATH
 alias ll='ls -al'
 alias la='ls -A'
 
-. $HOME/.homesick/repos/homeshick/homeshick.sh
+source $HOME/.homesick/repos/homeshick/homeshick.sh
 
 # Setup Z
-. $HOME/.homesick/repos/z/z.sh
+source $HOME/.homesick/repos/z/z.sh
 
 # Setup k
-. $HOME/.homesick/repos/k/k.sh
+source $HOME/.homesick/repos/k/k.sh
 
 # Git permissions
 . $HOME/.homesick/repos/dotfiles/git-perm.sh
 
 # DBICM Wrapper
-. $HOME/.homesick/repos/dbic-migration-env/dbicm-env.sh
+source $HOME/.homesick/repos/dbic-migration-env/dbicm-env.sh
 
 fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
 
