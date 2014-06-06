@@ -76,3 +76,7 @@ alias la='ls -A'
 . $HOME/.homesick/repos/dbic-migration-env/dbicm-env.sh
 
 fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
+
+# Force completion scripts to be loaded Autocomplete
+autoload -U compinit
+compinit
