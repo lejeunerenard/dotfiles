@@ -1,7 +1,7 @@
 # Copyright (c) 2013 Sean Zellmer @lejeunerenard under GPLv2
 
 _git_permissions() {
-   if [[ $HOST == 'highsite-web.com' || $HOST == 'highsite-dev.com' ]]
+   if [[ $HOST == 'highsite-dev.com' ]]
    then
       if [ "$(git rev-parse --git-dir 2>/dev/null)" ]
       then
@@ -11,7 +11,7 @@ _git_permissions() {
       fi
    fi
 
-   if [[ "$*" == /var/www/sites/* && ( $HOST == 'highsite-web.com' || $HOST == 'highsite-dev.com' ) ]]
+   if [[ "$*" == /var/www/sites/* && ( $HOST == 'highsite-dev.com' ) ]]
    then
       # Latest Change file
       : ${GIT_PERM_CACHE:=$HOME/.git-perm}
