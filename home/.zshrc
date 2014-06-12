@@ -57,9 +57,14 @@ export PATH=$PATH:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/s
 export PERL5LIB=$HOME/perl5/lib/perl5:$PERL5LIB
 export PATH=$HOME/perl5/bin:$PATH
 
-# some more ls aliases
+# Aliases
 alias ll='ls -al'
 alias la='ls -A'
+
+alias ssh∆='ssh seanz@173.254.216.23'
+alias sshp='ssh seanz@173.254.216.2'
+
+alias tmux="TERM=screen-256color-bce tmux"
 
 . $HOME/.homesick/repos/homeshick/homeshick.sh
 
