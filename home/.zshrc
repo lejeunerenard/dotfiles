@@ -66,19 +66,19 @@ alias sshp='ssh seanz@173.254.216.2'
 
 alias tmux="TERM=screen-256color-bce tmux"
 
-. $HOME/.homesick/repos/homeshick/homeshick.sh
+source $HOME/.homesick/repos/homeshick/homeshick.sh
 
 # Setup Z
-. $HOME/.homesick/repos/z/z.sh
+source $HOME/.homesick/repos/z/z.sh
 
 # Setup k
-. $HOME/.homesick/repos/k/k.sh
+source $HOME/.homesick/repos/k/k.sh
 
 # Git permissions
-. $HOME/.homesick/repos/dotfiles/git-perm.sh
+source $HOME/.homesick/repos/dotfiles/git-perm.sh
 
 # DBICM Wrapper
-. $HOME/.homesick/repos/dbic-migration-env/dbicm-env.sh
+source $HOME/.homesick/repos/dbic-migration-env/dbicm-env.sh
 
 fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
 
