@@ -75,7 +75,7 @@ source $HOME/.homesick/repos/z/z.sh
 source $HOME/.homesick/repos/k/k.sh
 
 # Git permissions
-source $HOME/.homesick/repos/dotfiles/git-perm.sh
+#source $HOME/.homesick/repos/dotfiles/git-perm.sh
 
 # DBICM Wrapper
 source $HOME/.homesick/repos/dbic-migration-env/dbicm-env.sh
