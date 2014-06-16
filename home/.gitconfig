@@ -1,0 +1,7 @@
+[user]
+	name = Sean Zellmer
+	email = sean@lejeunerenard.com
+[color]
+	ui = auto
+[core]
+   edtior = vim

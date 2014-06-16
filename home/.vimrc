@@ -29,6 +29,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'ervandew/supertab'
 Plugin 'editorconfig/editorconfig-vim'
+Plugin 'taglist.vim'
 
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
@@ -51,12 +52,13 @@ filetype plugin indent on     " required!
 :set expandtab
 
 " Misc {{{2
-:syntax on
-:set number
-:filetype on
-:set splitright " Natural vertical splitting
-:set spell
-:set foldcolumn=3
+syntax on
+set number
+filetype on
+set splitright " Natural vertical splitting
+set spell
+set foldcolumn=3
+set backspace=2
 
 " Searching {{{2
 :set hlsearch
