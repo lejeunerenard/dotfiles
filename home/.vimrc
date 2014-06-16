@@ -34,6 +34,9 @@ Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'honza/vim-snippets'
 Plugin 'garbas/vim-snipmate'
+
+" Language specific
+Plugin 'dbakker/vim-lint'
 Plugin 'vim-perl/vim-perl'
 
 " All of your Plugins must be added before the following line
