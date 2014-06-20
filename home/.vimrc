@@ -85,6 +85,9 @@ map <C-n> :NERDTreeToggle<CR>
 " Git branch statusline
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
+" vim-surround {{{2
+nmap cd viW<Tab>dumper<Tab>
+
 " Syntastic Settings {{{2
 let g:syntastic_mode_map = { 'mode': 'active',
    \ 'active_filetypes': [],
