@@ -59,6 +59,9 @@ set splitright " Natural vertical splitting
 set spell
 set foldcolumn=3
 set backspace=2
+" List characters for hidden characters
+set listchars=tab:▸\ ,eol:¬
+set list
 
 " Searching {{{2
 :set hlsearch
