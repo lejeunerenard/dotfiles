@@ -1,0 +1,25 @@
+# From https://github.com/jjasghar/snipmate-snippets/blob/f144c757f0d5b110336cc4717289987e303ac400/snippets/bats.snippets
+# need to figure out how to
+# automatically do
+# set ft=bats
+
+snippet bats
+	#!/usr/bin/env bats
+
+snippet @test
+	@test "${1:test something}" {
+	  $0
+	}
+
+snippet line
+	[ "${lines[${1:0}]}" = "${2:some value}" ]
+
+snippet output
+	[ "$output" = "${1:foo: no such file 'nonexistent_filename'}" ]
+
+snippet status
+	[ "$status" -eq ${1:0} ]
+
+snippet run
+	run foo
+	[ "$status" -eq ${1:0} ]
