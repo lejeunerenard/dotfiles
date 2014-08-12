@@ -62,6 +62,8 @@ set backspace=2
 " List characters for hidden characters
 set listchars=tab:▸\ ,eol:¬
 set list
+" Status bar is always on
+set laststatus=2
 
 " Searching {{{2
 :set hlsearch
