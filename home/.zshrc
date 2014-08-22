@@ -70,6 +70,7 @@ alias sshj='ssh∆'
 alias sshp='ssh seanz@173.254.216.2'
 
 alias tmux="TERM=screen-256color-bce tmux"
+alias irc="ssh seanz@haxiom.io -t tmux attach -t irssi"
 
 source $HOME/.homesick/repos/homeshick/homeshick.sh
 
