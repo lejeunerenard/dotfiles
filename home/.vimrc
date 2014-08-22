@@ -40,6 +40,9 @@ Plugin 'garbas/vim-snipmate'
 Plugin 'dbakker/vim-lint'
 Plugin 'vim-perl/vim-perl'
 
+" Experimental
+Plugin 'benmills/vimux'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on     " required!
