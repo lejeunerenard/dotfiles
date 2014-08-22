@@ -50,12 +50,16 @@ source $ZSH/oh-my-zsh.sh
 #HOST_ALIASES=$HOME/.aliashost 
 source $HOME/.homesick/repos/dotfiles/themes/ljr.zsh-theme
 
+# ===== Environmental variables =====
 # Customize to your needs...
 export PATH=$PATH:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
 # Perl local::lib
 export PERL5LIB=$HOME/perl5/lib/perl5:$PERL5LIB
 export PATH=$HOME/perl5/bin:$PATH
+
+# Editor
+export EDITOR="vim"
 
 # Aliases
 alias ll='ls -al'
