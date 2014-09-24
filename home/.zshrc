@@ -55,8 +55,10 @@ source $HOME/.homesick/repos/dotfiles/themes/ljr.zsh-theme
 export PATH=$PATH:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
 # Perl local::lib
-export PERL5LIB=$HOME/perl5/lib/perl5:$PERL5LIB
-export PATH=$HOME/perl5/bin:$PATH
+if [[ ":${PERL5LIB}:" != *:"$HOME/perl5/lib/perl5":*  ]]; then
+   export PERL5LIB=$HOME/perl5/lib/perl5:$PERL5LIB
+   export PATH=$HOME/perl5/bin:$PATH
+fi
 
 # Editor
 export EDITOR="vim"
