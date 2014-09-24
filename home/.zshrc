@@ -90,6 +90,11 @@ source $HOME/.homesick/repos/dbic-migration-env/dbicm-env.sh
 
 fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
 
+# Plenv setup
+export PATH="$HOME/.plenv/bin:$PATH"
+export PATH="$HOME/.plenv/shims:$PATH"
+eval "$(plenv init -)"
+
 # Force completion scripts to be loaded Autocomplete
 autoload -U compinit
 compinit
