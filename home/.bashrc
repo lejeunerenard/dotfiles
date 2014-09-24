@@ -113,10 +113,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export PERL_LOCAL_LIB_ROOT="$PERL_LOCAL_LIB_ROOT:/home/polok/perl5";
-export PERL_MB_OPT="--install_base /home/polok/perl5";
-export PERL_MM_OPT="INSTALL_BASE=/home/polok/perl5";
-
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 
 # DBICM Wrapper
