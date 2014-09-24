@@ -95,6 +95,9 @@ export PATH="$HOME/.plenv/bin:$PATH"
 export PATH="$HOME/.plenv/shims:$PATH"
 eval "$(plenv init -)"
 
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+
 # Force completion scripts to be loaded Autocomplete
 autoload -U compinit
 compinit
