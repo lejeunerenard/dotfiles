@@ -99,10 +99,12 @@ nmap cd viW<Tab>dumper<Tab>
 " Syntastic Settings {{{2
 let g:syntastic_mode_map = { 'mode': 'active',
    \ 'active_filetypes': [],
-   \ 'passive_filetypes': ['perl'] }
-"let g:syntastic_perl_checkers = ['perlcritic']
+   \ 'passive_filetypes': [''] }
+let g:syntastic_perl_checkers = ['perlcritic', 'perl']
 " Takes so freakin long. Ill have to look into what is causing it.
-"let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_enable_perl_checker = 1
+
 
 " Solarized {{{2
 if !has('gui_running')
