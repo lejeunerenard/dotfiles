@@ -76,3 +76,6 @@ eval "$(rbenv init -)"
 # Force completion scripts to be loaded Autocomplete
 autoload -U compinit
 compinit
+
+# Highlighting on the cmd line (*.* )
+source ~/.homesick/repos/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
