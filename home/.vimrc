@@ -42,6 +42,7 @@ Plugin 'vim-perl/vim-perl'
 
 " Experimental
 Plugin 'benmills/vimux'
+Plugin 'suan/vim-instant-markdown'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -126,12 +127,16 @@ endif
 set background=dark
 colorscheme solarized
 
-" Open markdown files with Chrome. {{{2
+" Markdown plugins {{{2
+" Open markdown files with Chrome.
 if os == "Darwin"
    autocmd BufEnter *.md exe 'noremap <F5> :!open -a "Google Chrome.app" %:p<CR>'
 elseif os == "win"
    autocmd BufEnter *.md exe 'noremap <F5> :!chromium-browser %:p<CR>'
 endif
+
+"vim-instant-markdown
+let g:instant_markdown_autostart = 0
 
 " --- Language Settings --- {{{1
 
