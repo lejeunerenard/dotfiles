@@ -30,6 +30,7 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'ervandew/supertab'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'taglist.vim'
+Plugin 'nelstrom/vim-qargs'
 
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
@@ -75,7 +76,7 @@ set laststatus=2
 
 
 " Syntax highlighting for Template Toolkit
-:au BufNewFile,BufRead *.tt set filetype=html 
+:au BufNewFile,BufRead *.tt set filetype=html
 
 " Detect OS
 if has("win16") || has("win32") || has("win64")
@@ -103,16 +104,18 @@ nmap cd viW<Tab>dumper<Tab>
 " Syntastic Settings {{{2
 let g:syntastic_mode_map = { 'mode': 'active',
    \ 'active_filetypes': [],
-   \ 'passive_filetypes': ['perl'] }
-"let g:syntastic_perl_checkers = ['perlcritic']
+   \ 'passive_filetypes': [''] }
+let g:syntastic_perl_checkers = ['perlcritic', 'perl']
 " Takes so freakin long. Ill have to look into what is causing it.
-"let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_enable_perl_checker = 1
+
 
 " Solarized {{{2
 if !has('gui_running')
    " Compatibility for Terminal
    let g:solarized_termtrans=1
-   if ($TERM == 'xterm') 
+   if ($TERM == 'xterm')
       set t_Co=256
    endif
 
