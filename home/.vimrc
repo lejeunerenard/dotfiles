@@ -38,6 +38,9 @@ Plugin 'garbas/vim-snipmate'
 " Searching
 Plugin 'taglist.vim'
 Plugin 'kien/ctrlp.vim'
+" This one requires compilation
+Plugin 'JazzCore/ctrlp-cmatcher'
+
 " Language specific
 Plugin 'dbakker/vim-lint'
 Plugin 'vim-perl/vim-perl'
@@ -94,6 +97,7 @@ map <C-n> :NERDTreeToggle<CR>
 
 " ctrlp {{{2
 let g:ctrlp_show_hidden = 1
+let g:ctrlp_match_func = {'match' : 'matcher#cmatch' }
 
 " Fugitive {{{2
 " Git branch statusline
