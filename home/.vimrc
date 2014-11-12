@@ -89,6 +89,9 @@ endif
 autocmd vimenter * if !argc() | NERDTree | endif
 map <C-n> :NERDTreeToggle<CR>
 
+" ctrlp {{{2
+let g:ctrlp_show_hidden = 1
+
 " Fugitive {{{2
 " Git branch statusline
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
