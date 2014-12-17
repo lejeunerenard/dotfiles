@@ -88,11 +88,16 @@ source $HOME/.homesick/repos/dbic-migration-env/dbicm-env.sh
 fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
 
 # Plenv setup
+if [[ ":${PERL5LIB}:" != *:"$HOME/.plenv/bin:$PATH":*  ]]; then
 export PATH="$HOME/.plenv/bin:$PATH"
 export PATH="$HOME/.plenv/shims:$PATH"
+fi
 eval "$(plenv init -)"
 
+if [[ ":${PERL5LIB}:" != *:"$HOME/.rbenv/bin:$PATH":*  ]]; then
 export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH="$HOME/.rbenv/shims:$PATH"
+fi
 eval "$(rbenv init -)"
 
 # Force completion scripts to be loaded Autocomplete
