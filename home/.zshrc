@@ -21,7 +21,7 @@ source $ZSH/oh-my-zsh.sh
 
 # Include custom theme
 # Override default $HOME/.hostAliases
-#HOST_ALIASES=$HOME/.aliashost 
+#HOST_ALIASES=$HOME/.aliashost
 source $HOME/.homesick/repos/dotfiles/themes/ljr.zsh-theme
 
 # ===== Environmental variables =====
@@ -66,12 +66,16 @@ source $HOME/.homesick/repos/dbic-migration-env/dbicm-env.sh
 fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
 
 # Plenv setup
-export PATH="$HOME/.plenv/bin:$PATH"
-export PATH="$HOME/.plenv/shims:$PATH"
-eval "$(plenv init -)"
+if command -v plenv >/dev/null 2>&1; then
+  export PATH="$HOME/.plenv/bin:$PATH"
+  export PATH="$HOME/.plenv/shims:$PATH"
+  eval "$(plenv init -)"
+fi
 
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+if command -v rbenv >/dev/null 2>&1; then
+  export PATH="$HOME/.rbenv/bin:$PATH"
+  eval "$(rbenv init -)"
+fi
 
 # Force completion scripts to be loaded Autocomplete
 autoload -U compinit
