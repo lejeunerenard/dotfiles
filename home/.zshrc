@@ -19,6 +19,10 @@ plugins=(git cpanm perl bower github vagrant npm node nvm vundle)
 
 source $ZSH/oh-my-zsh.sh
 
+# ZSH config
+# From http://stackoverflow.com/a/11873793/630490
+setopt interactivecomments
+
 # Include custom theme
 # Override default $HOME/.hostAliases
 #HOST_ALIASES=$HOME/.aliashost 
