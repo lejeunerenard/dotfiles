@@ -47,7 +47,25 @@ alias sshj='ssh∆'
 alias sshp='ssh seanz@173.254.216.2'
 
 alias tmux="TERM=screen-256color-bce tmux"
-alias irc="ssh seanz@haxiom.io -t tmux attach -t irssi"
+
+# IRC remote tmux session with growl tunnel support
+_growl_pre_irc() {
+   # Initiate tunnel if it hasnt fired
+   if ! ps ax | grep '[i]rssi' > /dev/null; then
+      ~/irssi-growler/irssi_growler 2>&1 > /dev/null &!
+   fi
+
+   # connect to the remote tmux session
+   ssh seanz@haxiom.io -t tmux attach -t irssi;
+
+   # Get all the pids of growl related processes
+   growl_pids=$( ps ax | grep '[i]rssi' | awk '{print $1}' )
+   # Look through them with the \n delimiter
+   while IFS="\n" read -r pid ; do
+      kill $pid
+   done <<<"$growl_pids"
+}
+alias irc="_growl_pre_irc"
 
 source $HOME/.homesick/repos/homeshick/homeshick.sh
 
