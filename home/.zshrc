@@ -25,7 +25,7 @@ setopt interactivecomments
 
 # Include custom theme
 # Override default $HOME/.hostAliases
-#HOST_ALIASES=$HOME/.aliashost 
+#HOST_ALIASES=$HOME/.aliashost
 source $HOME/.homesick/repos/dotfiles/themes/ljr.zsh-theme
 
 # ===== Environmental variables =====
@@ -91,17 +91,22 @@ fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
 export PATH="/usr/local/bin:$PATH"
 
 # Plenv setup
-if [[ ":${PERL5LIB}:" != *:"$HOME/.plenv/bin:$PATH":*  ]]; then
-export PATH="$HOME/.plenv/bin:$PATH"
-export PATH="$HOME/.plenv/shims:$PATH"
+if command -v plenv >/dev/null 2>&1; then
+   if [[ ":${PERL5LIB}:" != *:"$HOME/.plenv/bin:$PATH":*  ]]; then
+      export PATH="$HOME/.plenv/bin:$PATH"
+      export PATH="$HOME/.plenv/shims:$PATH"
+   fi
+   eval "$(plenv init -)"
 fi
-eval "$(plenv init -)"
 
-if [[ ":${PERL5LIB}:" != *:"$HOME/.rbenv/bin:$PATH":*  ]]; then
-export PATH="$HOME/.rbenv/bin:$PATH"
-export PATH="$HOME/.rbenv/shims:$PATH"
+# Rbenv setup
+if command -v rbenv >/dev/null 2>&1; then
+   if [[ ":${PERL5LIB}:" != *:"$HOME/.rbenv/bin:$PATH":*  ]]; then
+      export PATH="$HOME/.rbenv/bin:$PATH"
+      export PATH="$HOME/.rbenv/shims:$PATH"
+   fi
+   eval "$(rbenv init -)"
 fi
-eval "$(rbenv init -)"
 
 # Force completion scripts to be loaded Autocomplete
 autoload -U compinit
