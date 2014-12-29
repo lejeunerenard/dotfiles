@@ -15,13 +15,17 @@ ZSH=$HOME/.homesick/repos/oh-my-zsh
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git cpanm perl bower github vagrant npm node nvm vundle)
+plugins=(git cpanm perl bower github vagrant npm node nvm vundle gitignore)
 
 source $ZSH/oh-my-zsh.sh
 
+# ZSH config
+# From http://stackoverflow.com/a/11873793/630490
+setopt interactivecomments
+
 # Include custom theme
 # Override default $HOME/.hostAliases
-#HOST_ALIASES=$HOME/.aliashost 
+#HOST_ALIASES=$HOME/.aliashost
 source $HOME/.homesick/repos/dotfiles/themes/ljr.zsh-theme
 
 # ===== Environmental variables =====
@@ -47,7 +51,25 @@ alias sshj='ssh∆'
 alias sshp='ssh seanz@173.254.216.2'
 
 alias tmux="TERM=screen-256color-bce tmux"
-alias irc="ssh seanz@haxiom.io -t tmux attach -t irssi"
+
+# IRC remote tmux session with growl tunnel support
+_growl_pre_irc() {
+   # Initiate tunnel if it hasnt fired
+   if ! ps ax | grep '[i]rssi' > /dev/null; then
+      ~/irssi-growler/irssi_growler 2>&1 > /dev/null &!
+   fi
+
+   # connect to the remote tmux session
+   ssh seanz@haxiom.io -t tmux attach -t irssi;
+
+   # Get all the pids of growl related processes
+   growl_pids=$( ps ax | grep '[i]rssi' | awk '{print $1}' )
+   # Look through them with the \n delimiter
+   while IFS="\n" read -r pid ; do
+      kill $pid
+   done <<<"$growl_pids"
+}
+alias irc="_growl_pre_irc"
 
 source $HOME/.homesick/repos/homeshick/homeshick.sh
 
@@ -65,13 +87,26 @@ source $HOME/.homesick/repos/dbic-migration-env/dbicm-env.sh
 
 fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
 
-# Plenv setup
-export PATH="$HOME/.plenv/bin:$PATH"
-export PATH="$HOME/.plenv/shims:$PATH"
-eval "$(plenv init -)"
+# On mac for brew
+export PATH="/usr/local/bin:$PATH"
 
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+# Plenv setup
+if command -v plenv >/dev/null 2>&1; then
+   if [[ ":${PERL5LIB}:" != *:"$HOME/.plenv/bin:$PATH":*  ]]; then
+      export PATH="$HOME/.plenv/bin:$PATH"
+      export PATH="$HOME/.plenv/shims:$PATH"
+   fi
+   eval "$(plenv init -)"
+fi
+
+# Rbenv setup
+if command -v rbenv >/dev/null 2>&1; then
+   if [[ ":${PERL5LIB}:" != *:"$HOME/.rbenv/bin:$PATH":*  ]]; then
+      export PATH="$HOME/.rbenv/bin:$PATH"
+      export PATH="$HOME/.rbenv/shims:$PATH"
+   fi
+   eval "$(rbenv init -)"
+fi
 
 # Force completion scripts to be loaded Autocomplete
 autoload -U compinit

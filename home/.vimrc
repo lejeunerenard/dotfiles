@@ -74,6 +74,9 @@ set list
 " Status bar is always on
 set laststatus=2
 
+" Shell config
+" set shell=bash\ -i
+
 " Searching {{{2
 :set hlsearch
 :set incsearch
@@ -145,6 +148,7 @@ endif
 
 "vim-instant-markdown
 let g:instant_markdown_autostart = 0
+let g:instant_markdown_slow = 1
 
 " --- Language Settings --- {{{1
 
