@@ -75,7 +75,7 @@ set list
 set laststatus=2
 
 " Shell config
-set shell=bash\ -i
+" set shell=bash\ -i
 
 " Searching {{{2
 :set hlsearch
