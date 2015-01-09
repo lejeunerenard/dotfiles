@@ -100,7 +100,7 @@ map <C-n> :NERDTreeToggle<CR>
 
 " ctrlp {{{2
 let g:ctrlp_show_hidden = 1
-let g:ctrlp_match_func = {'match' : 'matcher#cmatch' }
+"let g:ctrlp_match_func = {'match' : 'matcher#cmatch' }
 
 " Fugitive {{{2
 " Git branch statusline
