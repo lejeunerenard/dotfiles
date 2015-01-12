@@ -97,6 +97,7 @@ endif
 " Nerd Tree {{{2
 autocmd vimenter * if !argc() | NERDTree | endif
 map <C-n> :NERDTreeToggle<CR>
+let NERDTreeShowHidden=1
 
 " ctrlp {{{2
 let g:ctrlp_show_hidden = 1
