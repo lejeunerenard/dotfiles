@@ -92,7 +92,7 @@ export PATH="/usr/local/bin:$PATH"
 
 # Plenv setup
 if command -v plenv >/dev/null 2>&1; then
-   if [[ ":${PERL5LIB}:" != *:"$HOME/.plenv/bin:$PATH":*  ]]; then
+   if [[ ":${PATH}:" != *":$HOME/.plenv/bin:"*  ]]; then
       export PATH="$HOME/.plenv/bin:$PATH"
       export PATH="$HOME/.plenv/shims:$PATH"
    fi
@@ -101,7 +101,7 @@ fi
 
 # Rbenv setup
 if command -v rbenv >/dev/null 2>&1; then
-   if [[ ":${PERL5LIB}:" != *:"$HOME/.rbenv/bin:$PATH":*  ]]; then
+   if [[ ":${PATH}:" != *":$HOME/.rbenv/bin:"*  ]]; then
       export PATH="$HOME/.rbenv/bin:$PATH"
       export PATH="$HOME/.rbenv/shims:$PATH"
    fi
