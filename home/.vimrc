@@ -157,4 +157,8 @@ let g:instant_markdown_slow = 1
 " Set manual command to use perldoc for perl files
 autocmd FileType perl :noremap K :!perldoc <cword>
    \ <bar><bar> perldoc -f <cword><cr>
+" Set perltidy as the default filter
+au BufRead,BufNewFile *.pl setl equalprg=perltidy
+au BufRead,BufNewFile *.pm setl equalprg=perltidy
+au BufRead,BufNewFile *.t setl equalprg=perltidy
 
