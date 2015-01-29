@@ -44,6 +44,7 @@ Plugin 'taglist.vim'
 Plugin 'kien/ctrlp.vim'
 " This one requires compilation
 Plugin 'JazzCore/ctrlp-cmatcher'
+Plugin 'mileszs/ack.vim'
 
 " Language specific
 Plugin 'dbakker/vim-lint'
