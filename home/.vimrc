@@ -52,6 +52,9 @@ Plugin 'vim-perl/vim-perl'
 " Experimental
 Plugin 'benmills/vimux'
 Plugin 'suan/vim-instant-markdown'
+" Potentially useful in the future
+" Plugin 'mattn/webapi-vim'
+Plugin 'mattn/gist-vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
