@@ -44,6 +44,7 @@ Plugin 'taglist.vim'
 Plugin 'kien/ctrlp.vim'
 " This one requires compilation
 Plugin 'JazzCore/ctrlp-cmatcher'
+Plugin 'mileszs/ack.vim'
 
 " Language specific
 Plugin 'dbakker/vim-lint'
@@ -108,6 +109,7 @@ let NERDTreeShowHidden=1
 
 " ctrlp {{{2
 let g:ctrlp_show_hidden = 1
+let g:ctrlp_extensions = ['tag']
 "let g:ctrlp_match_func = {'match' : 'matcher#cmatch' }
 
 " Fugitive {{{2
@@ -164,4 +166,8 @@ let g:instant_markdown_slow = 1
 " Set manual command to use perldoc for perl files
 autocmd FileType perl :noremap K :!perldoc <cword>
    \ <bar><bar> perldoc -f <cword><cr>
+" Set perltidy as the default filter
+au BufRead,BufNewFile *.pl setl equalprg=perltidy
+au BufRead,BufNewFile *.pm setl equalprg=perltidy
+au BufRead,BufNewFile *.t setl equalprg=perltidy
 
