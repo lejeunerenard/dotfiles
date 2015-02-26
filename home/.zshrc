@@ -108,6 +108,12 @@ if command -v rbenv >/dev/null 2>&1; then
    eval "$(rbenv init -)"
 fi
 
+# nvm
+if [ -d ~/.nvm ]; then
+   export NVM_DIR=~/.nvm
+   source $(brew --prefix nvm)/nvm.sh
+fi
+
 # Force completion scripts to be loaded Autocomplete
 autoload -U compinit
 compinit
