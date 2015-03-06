@@ -42,9 +42,12 @@ Plugin 'garbas/vim-snipmate'
 " Searching
 Plugin 'taglist.vim'
 Plugin 'kien/ctrlp.vim'
-" This one requires compilation
-Plugin 'JazzCore/ctrlp-cmatcher'
 Plugin 'mileszs/ack.vim'
+" These require compilation
+Plugin 'JazzCore/ctrlp-cmatcher'
+if (v:version >= 703) && has("patch584")
+  Plugin 'Valloric/YouCompleteMe'
+endif
 
 " Language specific
 Plugin 'dbakker/vim-lint'
