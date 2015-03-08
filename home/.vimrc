@@ -34,10 +34,14 @@ Plugin 'editorconfig/editorconfig-vim'
 Plugin 'godlygeek/tabular'
 
 " Snippets
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
+if has("python") " Check for support
+   Plugin 'SirVer/ultisnips'
+else
+   Plugin 'MarcWeber/vim-addon-mw-utils'
+   Plugin 'tomtom/tlib_vim'
+   Plugin 'garbas/vim-snipmate'
+endif
 Plugin 'honza/vim-snippets'
-Plugin 'garbas/vim-snipmate'
 
 " Searching
 Plugin 'taglist.vim'
@@ -104,6 +108,13 @@ else
 endif
 
 " --- Plugins Settings --- {{{1
+
+" UltiSnips {{{2
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+"let g:UltiSnipsSnippetDirectories=["UltiSnips", "snippets"]
 
 " Nerd Tree {{{2
 autocmd vimenter * if !argc() | NERDTree | endif
