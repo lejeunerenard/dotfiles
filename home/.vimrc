@@ -12,9 +12,6 @@ call vundle#begin()
 "required!
 Plugin 'gmarik/Vundle.vim'
 
-" My Plugins
-"
-" Original repos on GitHub
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-repeat'
