@@ -239,3 +239,21 @@ function! PerlAddUseStatement()
         call append(s:line, 'use ' . s:package . ';')
     endif
 endfunction
+
+" EXPERIMENTAL
+" source: https://github.com/marcelgruenauer/dotfiles/blob/master/src/.vimrc#L639
+function! s:TidyAsDiff()
+    let filetype=&ft
+    let filename = bufname("%")
+    let pos = getpos('.')
+    diffthis
+    vnew
+    execute "r !perltidy " . filename
+    normal! 1Gdd
+    diffthis
+    exe "setlocal bt=nofile bh=wipe nobl noswf ro ft=" . filetype
+    " go to original line in original window
+    exe "wincmd l"
+    call setpos('.', pos)
+endfunction
+com! TidyDiff call s:TidyAsDiff()
