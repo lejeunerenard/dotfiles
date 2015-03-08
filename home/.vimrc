@@ -49,7 +49,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'mileszs/ack.vim'
 " These require compilation
 Plugin 'JazzCore/ctrlp-cmatcher'
-if (v:version >= 703) && has("patch584")
+if v:version > 703 || (v:version == 703 && has('patch584'))
   Plugin 'Valloric/YouCompleteMe'
 endif
 
@@ -108,6 +108,12 @@ else
 endif
 
 " --- Plugins Settings --- {{{1
+
+" YouCompleteMe {{{2
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
 
 " UltiSnips {{{2
 " better key bindings for UltiSnipsExpandTrigger
