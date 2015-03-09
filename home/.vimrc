@@ -127,7 +127,9 @@ let NERDTreeShowHidden=1
 " ctrlp {{{2
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_extensions = ['tag']
-let g:ctrlp_match_func = {'match' : 'matcher#cmatch' }
+if has("python") " Check for support
+   let g:ctrlp_match_func = {'match' : 'matcher#cmatch' }
+endif
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 
 " Fugitive {{{2
