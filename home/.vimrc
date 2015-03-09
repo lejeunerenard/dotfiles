@@ -45,7 +45,9 @@ Plugin 'taglist.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'mileszs/ack.vim'
 " These require compilation
-Plugin 'JazzCore/ctrlp-cmatcher'
+if has("python") " Check for support
+   Plugin 'JazzCore/ctrlp-cmatcher'
+endif
 if v:version > 703 || (v:version == 703 && has('patch584'))
   Plugin 'Valloric/YouCompleteMe'
 endif
