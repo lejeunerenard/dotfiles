@@ -55,6 +55,7 @@ endif
 " Language specific
 Plugin 'dbakker/vim-lint'
 Plugin 'vim-perl/vim-perl'
+Plugin 'c9s/perlomni.vim'
 
 " Experimental
 Plugin 'benmills/vimux'
