@@ -114,6 +114,10 @@ if [ -d ~/.nvm ]; then
    source $(brew --prefix nvm)/nvm.sh
 fi
 
+# Don't rename the window
+export DISABLE_AUTO_TITLE=true
+
+
 # Force completion scripts to be loaded Autocomplete
 autoload -U compinit
 compinit
