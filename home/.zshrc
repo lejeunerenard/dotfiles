@@ -111,7 +111,9 @@ fi
 # nvm
 if [ -d ~/.nvm ]; then
    export NVM_DIR=~/.nvm
-   source $(brew --prefix nvm)/nvm.sh
+   if [[ $OSTYPE == "darwin"* ]]; then
+      source $(brew --prefix nvm)/nvm.sh
+   fi
 fi
 
 # Don't rename the window
