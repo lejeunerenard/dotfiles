@@ -125,4 +125,6 @@ autoload -U compinit
 compinit
 
 # Highlighting on the cmd line (*.* )
-source ~/.homesick/repos/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+if [ -d ~/.homesick/repos/zsh-syntax-highlighting ]; then
+   source ~/.homesick/repos/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
