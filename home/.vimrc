@@ -88,6 +88,8 @@ set listchars=tab:▸\ ,eol:¬
 set list
 " Status bar is always on
 set laststatus=2
+" Show count next to VISUAL
+set showcmd
 
 " Shell config
 " set shell=bash\ -i
