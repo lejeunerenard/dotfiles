@@ -32,6 +32,9 @@ source $HOME/.homesick/repos/dotfiles/themes/ljr.zsh-theme
 # Customize to your needs...
 export PATH=$PATH:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
+# Time Tracker
+source $HOME/.homesick/repos/dotfiles/timetracker.sh
+
 # Perl local::lib
 # if not already concatenated, concatenate
 if [[ ":${PERL5LIB}:" != *:"$HOME/perl5/lib/perl5":*  ]]; then
@@ -51,6 +54,8 @@ alias sshj='ssh∆'
 alias sshp='ssh seanz@173.254.216.2'
 
 alias tmux="TERM=screen-256color-bce tmux"
+
+alias tt="_timetracker"
 
 # IRC remote tmux session with growl tunnel support
 _growl_pre_irc() {
