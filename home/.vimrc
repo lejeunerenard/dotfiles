@@ -195,13 +195,28 @@ let g:instant_markdown_slow = 1
 " Set manual command to use perldoc for perl files
 autocmd FileType perl :noremap K :!perldoc <cword>
    \ <bar><bar> perldoc -f <cword><cr>
+if isdirectory("./lib")
+   autocmd FileType perl :let $PERL5LIB .= ':./lib'
+endif
 " Set perltidy as the default filter
 au BufRead,BufNewFile *.pl setl equalprg=perltidy
 au BufRead,BufNewFile *.pm setl equalprg=perltidy
 au BufRead,BufNewFile *.t setl equalprg=perltidy
 
+" Perl tests via vimux
+autocmd BufWritePost *.t :call RunPerlProveSingleFile()
+
 " Syntax
 let perl_extended_vars = 1 " EXPERIMENTAL
+
+" Perl Tests
+function! RunPerlProveSingleFile()
+   if ( &ft=='perl' )
+      if exists("g:VimuxRunnerIndex")
+         VimuxRunCommand("prove -lvr " . bufname("%"))
+      endif
+   endif
+endfunction
 
 " from http://www.slideshare.net/c9s/perlhacksonvim (Cornelius++) Slide 176
 nmap <C-x><C-i> :call InstallCPANModule()<CR>
