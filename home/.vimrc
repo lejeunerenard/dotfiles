@@ -24,6 +24,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'ervandew/supertab'
 Plugin 'nelstrom/vim-qargs'
+Plugin 'sjl/gundo.vim'
 
 " Formating
 Plugin 'scrooloose/syntastic'
