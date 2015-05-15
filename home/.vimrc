@@ -148,7 +148,7 @@ nmap cd viW<Tab>dumper<Tab>
 let g:syntastic_mode_map = { 'mode': 'active',
    \ 'active_filetypes': [],
    \ 'passive_filetypes': [''] }
-let g:syntastic_perl_checkers = ['perlcritic', 'perl']
+let g:syntastic_perl_checkers = ['perl']
 let g:syntastic_javascript_checkers = ['jshint']
 " Takes so freakin long. Ill have to look into what is causing it.
 "let g:syntastic_aggregate_errors = 1
@@ -197,9 +197,15 @@ let g:VimuxOrientation = "v"
 " Set manual command to use perldoc for perl files
 autocmd FileType perl :noremap K :!perldoc <cword>
    \ <bar><bar> perldoc -f <cword><cr>
+
+" Library directories
 if isdirectory("./lib")
    autocmd FileType perl :let $PERL5LIB .= ':./lib'
 endif
+if isdirectory("./local/lib/perl5")
+   autocmd FileType perl :let $PERL5LIB .= ':./local/lib/perl5'
+endif
+
 " Set perltidy as the default filter
 au BufRead,BufNewFile *.pl setl equalprg=perltidy
 au BufRead,BufNewFile *.pm setl equalprg=perltidy
