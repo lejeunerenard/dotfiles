@@ -188,6 +188,9 @@ endif
 let g:instant_markdown_autostart = 0
 let g:instant_markdown_slow = 1
 
+" Vimux {{{2
+let g:VimuxOrientation = "v"
+
 " --- Language Settings --- {{{1
 
 " Perl {{{2
