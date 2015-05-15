@@ -137,3 +137,11 @@ compinit
 if [ -d ~/.homesick/repos/zsh-syntax-highlighting ]; then
    source ~/.homesick/repos/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
+
+# Get to project root ( stolen from NickTomlin )
+## Stolen from paul irish's dotfiles: https://github.com/paulirish/dotfiles/commit/e67d1bc03
+if [[ $OSTYPE == "darwin"* ]]; then
+  cdf() {  # short for cdfinder
+    cd "`osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)'`"
+  }
+fi
