@@ -125,6 +125,14 @@ if [ -d ~/.nvm ]; then
    fi
 fi
 
+# Perl6 via rakudobrew
+if test -d $HOME/.rakudobrew; then
+   if [[ ":${PATH}:" != *":$HOME/.rakudobrew/bin"*  ]]; then
+      export PATH="$HOME/.rakudobrew/bin:$PATH"
+   fi
+   eval "$(plenv init -)"
+fi
+
 # Don't rename the window
 export DISABLE_AUTO_TITLE=true
 
