@@ -331,6 +331,8 @@ let g:instant_markdown_slow = 1
 
 " Vimux {{{2
 let g:VimuxOrientation = "v"
+map <Leader>vl :VimuxRunLastCommand<CR>
+map <Leader>vp :VimuxPromptCommand<CR>
 
 " --- Language Settings --- {{{1
 
