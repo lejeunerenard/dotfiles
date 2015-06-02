@@ -357,10 +357,11 @@ autocmd BufWritePost *.t :call RunPerlProveSingleFile()
 
 " Syntax
 let perl_extended_vars = 1 " EXPERIMENTAL
+let g:enable_prove_on_save = 1
 
 " Perl Tests
 function! RunPerlProveSingleFile()
-   if ( &ft=='perl' )
+   if ( &ft=='perl' && g:enable_prove_on_save )
       if exists("g:VimuxRunnerIndex")
          VimuxRunCommand("prove -lvr " . bufname("%"))
       endif
