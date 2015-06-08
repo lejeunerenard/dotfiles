@@ -240,9 +240,6 @@ set showcmd
 :set incsearch
 
 
-" Syntax highlighting for Template Toolkit
-:au BufNewFile,BufRead *.tt set filetype=html
-
 " Detect OS
 if has("win16") || has("win32") || has("win64")
    let os = 'win'
@@ -342,6 +339,11 @@ endif
 au BufRead,BufNewFile *.pl setl equalprg=perltidy
 au BufRead,BufNewFile *.pm setl equalprg=perltidy
 au BufRead,BufNewFile *.t setl equalprg=perltidy
+" Set HTML::Template
+au BufRead,BufNewFile *.tmpl set filetype=html
+" Syntax highlighting for Template Toolkit
+:au BufNewFile,BufRead *.tt set filetype=html
+
 
 " Perl tests via vimux
 autocmd BufWritePost *.t :call RunPerlProveSingleFile()
