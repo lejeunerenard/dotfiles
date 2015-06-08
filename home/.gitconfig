@@ -7,3 +7,5 @@
    edtior = vim
 [push]
 	default = simple
+[include]
+  path = ~/.machine-gitconfig
