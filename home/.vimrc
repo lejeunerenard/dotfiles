@@ -286,7 +286,7 @@ nmap cd viW<Tab>dumper<Tab>
 let g:syntastic_mode_map = { 'mode': 'active',
    \ 'active_filetypes': [],
    \ 'passive_filetypes': [''] }
-let g:syntastic_perl_checkers = ['perlcritic', 'perl']
+let g:syntastic_perl_checkers = ['perl']
 let g:syntastic_javascript_checkers = ['jshint']
 " Takes so freakin long. Ill have to look into what is causing it.
 "let g:syntastic_aggregate_errors = 1
@@ -326,15 +326,26 @@ endif
 let g:instant_markdown_autostart = 0
 let g:instant_markdown_slow = 1
 
+" Vimux {{{2
+let g:VimuxOrientation = "v"
+map <Leader>vl :VimuxRunLastCommand<CR>
+map <Leader>vp :VimuxPromptCommand<CR>
+
 " --- Language Settings --- {{{1
 
 " Perl {{{2
 " Set manual command to use perldoc for perl files
 autocmd FileType perl :noremap K :!perldoc <cword>
    \ <bar><bar> perldoc -f <cword><cr>
+
+" Library directories
 if isdirectory("./lib")
    autocmd FileType perl :let $PERL5LIB .= ':./lib'
 endif
+if isdirectory("./local/lib/perl5")
+   autocmd FileType perl :let $PERL5LIB .= ':./local/lib/perl5'
+endif
+
 " Set perltidy as the default filter
 au BufRead,BufNewFile *.pl setl equalprg=perltidy
 au BufRead,BufNewFile *.pm setl equalprg=perltidy
@@ -350,10 +361,11 @@ autocmd BufWritePost *.t :call RunPerlProveSingleFile()
 
 " Syntax
 let perl_extended_vars = 1 " EXPERIMENTAL
+let g:enable_prove_on_save = 1
 
 " Perl Tests
 function! RunPerlProveSingleFile()
-   if ( &ft=='perl' )
+   if ( &ft=='perl' && g:enable_prove_on_save )
       if exists("g:VimuxRunnerIndex")
          VimuxRunCommand("prove -lvr " . bufname("%"))
       endif
