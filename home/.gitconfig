@@ -5,6 +5,7 @@
 	ui = auto
 [core]
    edtior = vim
+	excludesfile = ~/.gitignore_global
 [push]
 	default = simple
 [include]
