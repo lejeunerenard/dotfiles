@@ -20,6 +20,8 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'scrooloose/nerdtree'
 Plugin 'ervandew/supertab'
 Plugin 'nelstrom/vim-qargs'
+Plugin 'AndrewRadev/linediff.vim'
+
 " Editing
 Plugin 'tpope/vim-surround'
 Plugin 'mattn/emmet-vim'
