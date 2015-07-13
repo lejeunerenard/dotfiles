@@ -15,21 +15,23 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-abolish'
-Plugin 'mattn/emmet-vim'
-Plugin 'tommcdo/vim-exchange'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'scrooloose/nerdtree'
-Plugin 'jiangmiao/auto-pairs'
 Plugin 'ervandew/supertab'
 Plugin 'nelstrom/vim-qargs'
+" Editing
+Plugin 'tpope/vim-surround'
+Plugin 'mattn/emmet-vim'
+Plugin 'tommcdo/vim-exchange'
+Plugin 'jiangmiao/auto-pairs'
 Plugin 'sjl/gundo.vim'
 
 " Formating
 Plugin 'scrooloose/syntastic'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'godlygeek/tabular'
+Plugin 'tomtom/tcomment_vim'
 
 " Snippets
 if has("python") " Check for support
