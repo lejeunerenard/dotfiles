@@ -232,8 +232,17 @@ set laststatus=2
 " Show count next to VISUAL
 set showcmd
 
+" Edit vimrc
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+autocmd BufWritePost $MYVIMRC source $MYVIMRC
+nnoremap <leader>s I#<esc>
+
 " Shell config
 " set shell=bash\ -i
+
+" Modes {{{2
+inoremap jk <esc>
+inoremap <esc> <nop>
 
 " Searching {{{2
 :set hlsearch
@@ -347,14 +356,20 @@ if isdirectory("./local/lib/perl5")
 endif
 
 " Set perltidy as the default filter
-au BufRead,BufNewFile *.pl setl equalprg=perltidy
-au BufRead,BufNewFile *.pm setl equalprg=perltidy
-au BufRead,BufNewFile *.t setl equalprg=perltidy
-" Set HTML::Template
-au BufRead,BufNewFile *.tmpl set filetype=html
-" Syntax highlighting for Template Toolkit
-:au BufNewFile,BufRead *.tt set filetype=html
+augroup perltidy
+   autocmd!
+   autocmd BufRead,BufNewFile *.pl setl equalprg=perltidy
+   autocmd BufRead,BufNewFile *.pm setl equalprg=perltidy
+   autocmd BufRead,BufNewFile *.t setl equalprg=perltidy
+augroup END
 
+augroup perl_templates
+   autocmd!
+   " Set HTML::Template
+   autocmd BufRead,BufNewFile *.tmpl set filetype=html
+   " Syntax highlighting for Template Toolkit
+   autocmd BufNewFile,BufRead *.tt set filetype=html
+augroup END
 
 " Perl tests via vimux
 autocmd BufWritePost *.t :call RunPerlProveSingleFile()
