@@ -28,6 +28,7 @@ Plugin 'mattn/emmet-vim'
 Plugin 'tommcdo/vim-exchange'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'sjl/gundo.vim'
+Plugin 'terryma/vim-multiple-cursors'
 
 " Formating
 Plugin 'scrooloose/syntastic'
@@ -344,6 +345,15 @@ let g:VimuxOrientation = "v"
 map <Leader>vl :VimuxRunLastCommand<CR>
 map <Leader>vp :VimuxPromptCommand<CR>
 
+" vim-multiple-cursors {{{2
+let g:multi_cursor_use_default_mapping=0
+" New Mappings
+let g:multi_cursor_next_key='<C-g>'
+let g:multi_cursor_prev_key='<C-p>'
+let g:multi_cursor_skip_key='<C-x>'
+let g:multi_cursor_quit_key='<Esc>'
+" Map start key the same as the next key
+let g:multi_cursor_start_key='<C-g>'
 " --- Language Settings --- {{{1
 
 " Perl {{{2
