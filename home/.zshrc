@@ -55,6 +55,9 @@ alias sshp='ssh seanz@173.254.216.2'
 
 alias tmux="TERM=screen-256color-bce tmux"
 
+# Git alias
+alias gdc="git diff --cached"
+
 # Add jiffy alias if able
 if which jiffy >/dev/null 2>&1; then
    alias j='jiffy'
