@@ -50,7 +50,7 @@ Plug 'kien/ctrlp.vim'
 Plug 'mileszs/ack.vim'
 " These require compilation
 if has("python") " Check for support
-   Plug 'JazzCore/ctrlp-cmatcher'
+   Plug 'JazzCore/ctrlp-cmatcher', { 'do': './install.sh' }
 endif
 if v:version > 703 || (v:version == 703 && has('patch584'))
   Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
