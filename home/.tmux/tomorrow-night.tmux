@@ -53,7 +53,7 @@ set -g status-left-length 100
 # set -g status-left-bg green
 # set -g status-left-fg black
 set -g status-left-attr bold
-set -g status-left '#[fg=#cc99cc,bg=#2d2d2d] #H#[fg=]:#[fg=#99cc99]#S '
+# set -g status-left '#[fg=#cc99cc,bg=#2d2d2d] #H#[fg=]:#[fg=#99cc99]#S '
 
 # right side of status bar holds "[host name] (date time)"
 set -g status-right-length 100
