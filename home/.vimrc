@@ -7,7 +7,6 @@ filetype off   " required!
 call plug#begin('~/.vim/plugged')
 
 " General Vim enhancements
-Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-abolish'
@@ -16,6 +15,10 @@ Plug 'scrooloose/nerdtree'
 Plug 'ervandew/supertab'
 Plug 'nelstrom/vim-qargs'
 Plug 'AndrewRadev/linediff.vim'
+
+" Version control
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
 
 " Editing
 Plug 'tpope/vim-surround'
