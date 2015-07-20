@@ -4,74 +4,73 @@ set nocompatible
 filetype off   " required!
 
 " --- Plugins --- {{{1
-"set rtp+=~/.vim/bundle/vundle/
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+call plug#begin('~/.vim/plugged')
 
-" Let Vundle manage Vundle
-"required!
-Plugin 'gmarik/Vundle.vim'
+" General Vim enhancements
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-abolish'
+Plug 'altercation/vim-colors-solarized'
+Plug 'scrooloose/nerdtree'
+Plug 'ervandew/supertab'
+Plug 'nelstrom/vim-qargs'
+Plug 'AndrewRadev/linediff.vim'
 
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-unimpaired'
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-abolish'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'scrooloose/nerdtree'
-Plugin 'ervandew/supertab'
-Plugin 'nelstrom/vim-qargs'
-Plugin 'AndrewRadev/linediff.vim'
+" Version control
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
 
 " Editing
-Plugin 'tpope/vim-surround'
-Plugin 'mattn/emmet-vim'
-Plugin 'tommcdo/vim-exchange'
-Plugin 'jiangmiao/auto-pairs'
-Plugin 'sjl/gundo.vim'
-Plugin 'terryma/vim-multiple-cursors'
+Plug 'tpope/vim-surround'
+Plug 'mattn/emmet-vim'
+Plug 'tommcdo/vim-exchange'
+Plug 'jiangmiao/auto-pairs'
+Plug 'sjl/gundo.vim'
+Plug 'terryma/vim-multiple-cursors'
 
 " Formating
-Plugin 'scrooloose/syntastic'
-Plugin 'editorconfig/editorconfig-vim'
-Plugin 'godlygeek/tabular'
-Plugin 'tomtom/tcomment_vim'
+Plug 'scrooloose/syntastic'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'godlygeek/tabular'
+Plug 'tomtom/tcomment_vim'
 
 " Snippets
 if has("python") " Check for support
-   Plugin 'SirVer/ultisnips'
+   Plug 'SirVer/ultisnips'
 else
-   Plugin 'MarcWeber/vim-addon-mw-utils'
-   Plugin 'tomtom/tlib_vim'
-   Plugin 'garbas/vim-snipmate'
+   Plug 'MarcWeber/vim-addon-mw-utils'
+   Plug 'tomtom/tlib_vim'
+   Plug 'garbas/vim-snipmate'
 endif
-Plugin 'honza/vim-snippets'
+Plug 'honza/vim-snippets'
 
 " Searching
-Plugin 'taglist.vim'
-Plugin 'kien/ctrlp.vim'
-Plugin 'mileszs/ack.vim'
+Plug 'taglist.vim'
+Plug 'kien/ctrlp.vim'
+Plug 'mileszs/ack.vim'
 " These require compilation
 if has("python") " Check for support
-   Plugin 'JazzCore/ctrlp-cmatcher'
+   Plug 'JazzCore/ctrlp-cmatcher', { 'do': './install.sh' }
 endif
 if v:version > 703 || (v:version == 703 && has('patch584'))
-  Plugin 'Valloric/YouCompleteMe'
+  Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
 endif
 
 " Language specific
-Plugin 'dbakker/vim-lint'
-Plugin 'vim-perl/vim-perl'
-Plugin 'c9s/perlomni.vim'
+Plug 'dbakker/vim-lint'
+Plug 'vim-perl/vim-perl'
+Plug 'c9s/perlomni.vim'
 
 " Experimental
-Plugin 'benmills/vimux'
-Plugin 'suan/vim-instant-markdown'
+Plug 'benmills/vimux'
+Plug 'suan/vim-instant-markdown'
+Plug 'junegunn/vim-peekaboo'
 " Potentially useful in the future
-" Plugin 'mattn/webapi-vim'
-Plugin 'mattn/gist-vim'
+" Plug 'mattn/webapi-vim'
+Plug 'mattn/gist-vim'
 
 " All of your Plugins must be added before the following line
-call vundle#end()            " required
+call plug#end()
 filetype plugin indent on     " required!
 
 " --- General settings --- {{{1
@@ -293,6 +292,9 @@ let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 " Git branch statusline
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
+" Peekaboo {{{2
+" Delay opening of peekaboo window (in ms. default: 0)
+let g:peekaboo_delay = 750
 " vim-surround {{{2
 nmap cd viW<Tab>dumper<Tab>
 
