@@ -64,6 +64,7 @@ Plug 'c9s/perlomni.vim'
 " Experimental
 Plug 'benmills/vimux'
 Plug 'suan/vim-instant-markdown'
+Plug 'junegunn/vim-peekaboo'
 " Potentially useful in the future
 " Plug 'mattn/webapi-vim'
 Plug 'mattn/gist-vim'
@@ -291,6 +292,9 @@ let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 " Git branch statusline
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
+" Peekaboo {{{2
+" Delay opening of peekaboo window (in ms. default: 0)
+let g:peekaboo_delay = 750
 " vim-surround {{{2
 nmap cd viW<Tab>dumper<Tab>
 
