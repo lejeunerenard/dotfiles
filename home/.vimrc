@@ -10,7 +10,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-abolish'
-Plug 'altercation/vim-colors-solarized'
+Plug 'junegunn/seoul256.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'ervandew/supertab'
 Plug 'nelstrom/vim-qargs'
@@ -312,24 +312,10 @@ let g:syntastic_enable_perl_checker = 1
 let g:syntastic_always_populate_loc_list = 1
 
 
-" Solarized {{{2
-if !has('gui_running')
-   " Compatibility for Terminal
-   let g:solarized_termtrans=1
-   if ($TERM == 'xterm')
-      set t_Co=256
-   endif
-
-   if (&t_Co >= 256 || $TERM == 'xterm-256color')
-      " Do nothing, it handles itself.
-      let g:solarized_termcolors=256
-   else
-      "Make Solarized use 16 colors for Terminal support
-      let g:solarized_termcolors=16
-   endif
-endif
+" Color Scheme {{{2
+let g:seoul256_background = 236
+colo seoul256
 set background=dark
-colorscheme solarized
 
 " Markdown plugins {{{2
 " Open markdown files with Chrome.
