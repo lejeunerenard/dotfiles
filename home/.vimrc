@@ -65,6 +65,7 @@ Plug 'c9s/perlomni.vim'
 Plug 'benmills/vimux'
 Plug 'suan/vim-instant-markdown'
 Plug 'junegunn/vim-peekaboo'
+Plug 'junegunn/goyo.vim'
 " Potentially useful in the future
 " Plug 'mattn/webapi-vim'
 Plug 'mattn/gist-vim'
