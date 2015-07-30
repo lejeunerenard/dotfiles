@@ -58,8 +58,15 @@ endif
 
 " Language specific
 Plug 'dbakker/vim-lint'
+
+" Perl
 Plug 'vim-perl/vim-perl'
 Plug 'c9s/perlomni.vim'
+
+" JS
+Plug 'jelera/vim-javascript-syntax'
+Plug 'pangloss/vim-javascript'
+Plug 'marijnh/tern_for_vim'
 
 " Experimental
 Plug 'benmills/vimux'
