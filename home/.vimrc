@@ -46,7 +46,7 @@ Plug 'honza/vim-snippets'
 
 " Searching
 Plug 'taglist.vim'
-Plug 'kien/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mileszs/ack.vim'
 " These require compilation
 if has("python") " Check for support
