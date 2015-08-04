@@ -1,0 +1,4 @@
+# Dumper Debuging
+snippet dumper "standard dumper print"
+print ${1:STDERR} "${2:variable}: ".Dumper($${3:$2})."\n";
+endsnippet
