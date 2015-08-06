@@ -59,7 +59,7 @@ alias tmux="TERM=screen-256color-bce tmux"
 alias gdc="git diff --cached"
 
 # Add jiffy alias if able
-if hash jiffy >/dev/null 2>&1; then
+if hash jiffy 2>/dev/null; then
    alias j='jiffy'
 fi
 
@@ -103,7 +103,7 @@ fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
 export PATH="/usr/local/bin:$PATH"
 
 # Plenv setup
-if ! hash plenv >/dev/null 2>&1; then
+if [ ! hash plenv 2>/dev/null ] && [ -d $HOME/.plenv/bin ]; then
    if [[ ":${PATH}:" != *":$HOME/.plenv/bin:"*  ]]; then
       export PATH="$HOME/.plenv/bin:$PATH"
       export PATH="$HOME/.plenv/shims:$PATH"
@@ -112,7 +112,7 @@ if ! hash plenv >/dev/null 2>&1; then
 fi
 
 # Rbenv setup
-if ! hash rbenv >/dev/null 2>&1; then
+if [ ! hash rbenv 2>/dev/null ] && [ -d $HOME/.rbenv/bin ]; then
    if [[ ":${PATH}:" != *":$HOME/.rbenv/bin:"*  ]]; then
       export PATH="$HOME/.rbenv/bin:$PATH"
       export PATH="$HOME/.rbenv/shims:$PATH"
