@@ -100,7 +100,9 @@ source $HOME/.homesick/repos/dbic-migration-env/dbicm-env.sh
 fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
 
 # On mac for brew
-export PATH="/usr/local/bin:$PATH"
+if [[ $OSTYPE == "darwin"* ]]; then
+  export PATH="/usr/local/bin:$PATH"
+fi
 
 # Plenv setup
 if [ ! hash plenv 2>/dev/null ] && [ -d $HOME/.plenv/bin ]; then
