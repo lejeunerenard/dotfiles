@@ -164,3 +164,12 @@ if [[ $OSTYPE == "darwin"* ]]; then
     cd "`osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)'`"
   }
 fi
+
+# Google Cloud SDK.
+if [ -d /Users/seanzellmer/Library/Android ]; then
+   # The next line updates PATH
+   source "$HOME/google-cloud-sdk/path.zsh.inc"
+
+   # The next line enables shell command completion
+   source "$HOME/google-cloud-sdk/completion.zsh.inc"
+fi
