@@ -140,6 +140,13 @@ fi
 # Don't rename the window
 export DISABLE_AUTO_TITLE=true
 
+# Mobile development{{{
+if [ -d /Users/seanzellmer/Library/Android ]; then
+   alias adb=$HOME/Library/Android/sdk/platform-tools/adb
+fi
+
+# }}}
+
 
 # Force completion scripts to be loaded Autocomplete
 autoload -U compinit
