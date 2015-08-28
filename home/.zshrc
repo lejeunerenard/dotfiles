@@ -130,6 +130,12 @@ if [ -d ~/.nvm ]; then
    fi
 fi
 
+# make it easier to run things in node_modules
+if [ ! hash npm 2>/dev/null ]; then
+   alias npm-exec='env PATH="$(npm bin):$PATH"'
+   alias ne='npm-exec'
+fi
+
 # Perl6 via rakudobrew
 if test -d $HOME/.rakudobrew; then
    if [[ ":${PATH}:" != *":$HOME/.rakudobrew/bin"*  ]]; then
