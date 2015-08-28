@@ -340,6 +340,13 @@ let g:instant_markdown_slow = 1
 let g:VimuxOrientation = "v"
 map <Leader>vl :VimuxRunLastCommand<CR>
 map <Leader>vp :VimuxPromptCommand<CR>
+map <Leader>vc :VimuxClearRunnerHistory<CR>
+map <Leader>vs :call VimuxSetPane()<CR>
+function! VimuxSetPane()
+   "g:VimuxRunnerIndex
+   !tmux display-panes
+   let g:VimuxRunnerIndex = nr2char(getchar())
+endfunction
 
 " vim-multiple-cursors {{{2
 let g:multi_cursor_use_default_mapping=0
