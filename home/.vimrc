@@ -340,7 +340,9 @@ let g:instant_markdown_slow = 1
 let g:VimuxOrientation = "v"
 map <Leader>vl :VimuxRunLastCommand<CR>
 map <Leader>vp :VimuxPromptCommand<CR>
-map <Leader>vc :VimuxClearRunnerHistory<CR>
+map <Leader>vi :VimuxInspectRunner<CR>
+map <Leader>vq :VimuxInterruptRunner<CR>
+map <Leader>vz :VimuxZoomRunner<CR>
 map <Leader>vs :call VimuxSetPane()<CR>
 function! VimuxSetPane()
    "g:VimuxRunnerIndex
@@ -390,6 +392,8 @@ augroup END
 
 " Perl tests via vimux
 autocmd BufWritePost *.t :call RunPerlProveSingleFile()
+
+map <Leader>vt :VimuxRunCommand("clear; prove -lvr " . bufname("%"))<CR>
 
 " Syntax
 let perl_extended_vars = 1 " EXPERIMENTAL
