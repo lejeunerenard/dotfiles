@@ -33,6 +33,7 @@ Plug 'scrooloose/syntastic'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'godlygeek/tabular'
 Plug 'tomtom/tcomment_vim'
+Plug 'AndrewRadev/splitjoin.vim'
 
 " Snippets
 if has("python") " Check for support
