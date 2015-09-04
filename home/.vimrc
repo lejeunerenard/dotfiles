@@ -294,7 +294,7 @@ let g:ctrlp_extensions = ['tag']
 if has("python") " Check for support
    let g:ctrlp_match_func = {'match' : 'matcher#cmatch' }
 endif
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|local'
 
 " Fugitive {{{2
 " Git branch statusline
