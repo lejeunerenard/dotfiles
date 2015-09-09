@@ -49,6 +49,7 @@ Plug 'honza/vim-snippets'
 Plug 'taglist.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mileszs/ack.vim'
+Plug 'tacahiroy/ctrlp-funky'
 " These require compilation
 if has("python") " Check for support
    Plug 'JazzCore/ctrlp-cmatcher', { 'do': './install.sh' }
@@ -291,7 +292,7 @@ let NERDTreeShowHidden=1
 
 " ctrlp {{{2
 let g:ctrlp_show_hidden = 1
-let g:ctrlp_extensions = ['tag']
+let g:ctrlp_extensions = ['tag', 'funky']
 if has("python") " Check for support
    let g:ctrlp_match_func = {'match' : 'matcher#cmatch' }
 endif
