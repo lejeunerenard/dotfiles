@@ -247,6 +247,9 @@ set laststatus=2
 " Show count next to VISUAL
 set showcmd
 
+" Disable preview autocomplete
+set completeopt-=preview
+
 " Edit vimrc
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 augroup reload_vimrc
