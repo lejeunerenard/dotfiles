@@ -76,6 +76,9 @@ Plug 'marijnh/tern_for_vim', { 'do': 'npm install' }
 " Experimental
 Plug 'benmills/vimux'
 Plug 'suan/vim-instant-markdown'
+if s:darwin
+   Plug 'junegunn/vim-xmark', { 'do': 'make'  }
+endif
 Plug 'junegunn/vim-peekaboo'
 Plug 'junegunn/goyo.vim'
 " Potentially useful in the future
