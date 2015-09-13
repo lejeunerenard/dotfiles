@@ -69,7 +69,7 @@ Plug 'c9s/perlomni.vim'
 " JS
 Plug 'jelera/vim-javascript-syntax'
 Plug 'pangloss/vim-javascript'
-Plug 'marijnh/tern_for_vim'
+Plug 'marijnh/tern_for_vim', { 'do': 'npm install' }
 
 " Experimental
 Plug 'benmills/vimux'
