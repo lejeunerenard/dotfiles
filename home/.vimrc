@@ -1,6 +1,8 @@
 " vim: foldmethod=marker
 set nocompatible
 
+let s:darwin = has('mac')
+
 filetype off   " required!
 
 " --- Plugins --- {{{1
