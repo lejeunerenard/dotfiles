@@ -105,7 +105,7 @@ if [[ $OSTYPE == "darwin"* ]]; then
 fi
 
 # Plenv setup
-if [ ! hash plenv 2>/dev/null ] && [ -d $HOME/.plenv/bin ]; then
+if hash plenv 2>/dev/null && [ -d $HOME/.plenv/bin ]; then
    if [[ ":${PATH}:" != *":$HOME/.plenv/bin:"*  ]]; then
       export PATH="$HOME/.plenv/bin:$PATH"
       export PATH="$HOME/.plenv/shims:$PATH"
@@ -114,7 +114,7 @@ if [ ! hash plenv 2>/dev/null ] && [ -d $HOME/.plenv/bin ]; then
 fi
 
 # Rbenv setup
-if [ ! hash rbenv 2>/dev/null ] && [ -d $HOME/.rbenv/bin ]; then
+if hash rbenv 2>/dev/null && [ -d $HOME/.rbenv/bin ]; then
    if [[ ":${PATH}:" != *":$HOME/.rbenv/bin:"*  ]]; then
       export PATH="$HOME/.rbenv/bin:$PATH"
       export PATH="$HOME/.rbenv/shims:$PATH"
