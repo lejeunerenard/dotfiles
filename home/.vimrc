@@ -428,7 +428,6 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 "let g:UltiSnipsSnippetDirectories=["UltiSnips", "snippets"]
 
 " Nerd Tree {{{2
-autocmd vimenter * if !argc() | NERDTree | endif
 map <C-n> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
 
