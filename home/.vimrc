@@ -464,6 +464,9 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_enable_perl_checker = 1
 let g:syntastic_always_populate_loc_list = 1
 
+" HTML::Template
+let g:syntastic_ignore_files = ['\m\c.tmpl$']
+
 
 " Color Scheme {{{2
 let g:seoul256_background = 236
