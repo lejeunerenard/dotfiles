@@ -47,9 +47,6 @@ pathadd "/usr/local/bin"
 pathadd "/usr/lib/lightdm/lightdm"
 pathadd "$HOME/bin"
 
-# Time Tracker
-source $HOME/.homesick/repos/dotfiles/timetracker.sh
-
 # Perl local::lib
 # if not already concatenated, concatenate
 if [[ ":${PERL5LIB}:" != *:"$HOME/perl5/lib/perl5":*  ]]; then
