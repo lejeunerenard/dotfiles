@@ -92,8 +92,8 @@ filetype plugin indent on     " required!
 " --- General settings --- {{{1
 
 " Tabs {{{2
-:set tabstop=3
-:set shiftwidth=3
+:set tabstop=2
+:set shiftwidth=2
 :set expandtab
 
 " Text Objects {{{2
