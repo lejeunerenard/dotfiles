@@ -29,8 +29,23 @@ setopt interactivecomments
 source $HOME/.homesick/repos/dotfiles/themes/ljr.zsh-theme
 
 # ===== Environmental variables =====
-# Customize to your needs...
-export PATH=$PATH:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
+# source: http://superuser.com/a/39995
+pathadd() {
+  if [ -d "$1" ] && [[ ":$PATH:" != *":$1:"* ]]; then
+    PATH="$1${PATH:+":$PATH"}"
+  fi
+}
+
+# Customize items
+pathadd "/bin"
+pathadd "/sbin"
+pathadd "/usr/sbin"
+pathadd "/usr/bin"
+pathadd "/usr/local/sbin"
+pathadd "/usr/local/bin"
+pathadd "/usr/lib/lightdm/lightdm"
+pathadd "$HOME/bin"
 
 # Time Tracker
 source $HOME/.homesick/repos/dotfiles/timetracker.sh
@@ -38,8 +53,8 @@ source $HOME/.homesick/repos/dotfiles/timetracker.sh
 # Perl local::lib
 # if not already concatenated, concatenate
 if [[ ":${PERL5LIB}:" != *:"$HOME/perl5/lib/perl5":*  ]]; then
-   export PERL5LIB=$HOME/perl5/lib/perl5:$PERL5LIB
-   export PATH=$HOME/perl5/bin:$PATH
+  export PERL5LIB=$HOME/perl5/lib/perl5:$PERL5LIB
+  pathadd "$HOME/perl5/bin"
 fi
 
 # Editor
@@ -101,25 +116,21 @@ fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
 
 # On mac for brew
 if [[ $OSTYPE == "darwin"* ]]; then
-  export PATH="/usr/local/bin:$PATH"
+  pathadd "/usr/local/bin"
 fi
 
 # Plenv setup
 if hash plenv 2>/dev/null && [ -d $HOME/.plenv/bin ]; then
-   if [[ ":${PATH}:" != *":$HOME/.plenv/bin:"*  ]]; then
-      export PATH="$HOME/.plenv/bin:$PATH"
-      export PATH="$HOME/.plenv/shims:$PATH"
-   fi
-   eval "$(plenv init -)"
+  pathadd "$HOME/.plenv/bin"
+  pathadd "$HOME/.plenv/shims"
+  eval "$(plenv init -)"
 fi
 
 # Rbenv setup
 if hash rbenv 2>/dev/null && [ -d $HOME/.rbenv/bin ]; then
-   if [[ ":${PATH}:" != *":$HOME/.rbenv/bin:"*  ]]; then
-      export PATH="$HOME/.rbenv/bin:$PATH"
-      export PATH="$HOME/.rbenv/shims:$PATH"
-   fi
-   eval "$(rbenv init -)"
+  pathadd "$HOME/.rbenv/bin"
+  pathadd "$HOME/.rbenv/shims"
+  eval "$(rbenv init -)"
 fi
 
 # nvm
@@ -138,16 +149,14 @@ fi
 
 # Perl6 via rakudobrew
 if test -d $HOME/.rakudobrew; then
-   if [[ ":${PATH}:" != *":$HOME/.rakudobrew/bin"*  ]]; then
-      export PATH="$HOME/.rakudobrew/bin:$PATH"
-   fi
+  pathadd "$HOME/.rakudobrew/bin"
 fi
 
 # Don't rename the window
 export DISABLE_AUTO_TITLE=true
 
 # Mobile development{{{
-if [ -d /Users/seanzellmer/Library/Android ]; then
+if [ -d $HOME/Library/Android ]; then
    alias adb=$HOME/Library/Android/sdk/platform-tools/adb
 fi
 
@@ -172,7 +181,7 @@ if [[ $OSTYPE == "darwin"* ]]; then
 fi
 
 # Google Cloud SDK.
-if [ -d /Users/seanzellmer/Library/Android ]; then
+if [ -d $HOME/Library/Android ]; then
    # The next line updates PATH
    source "$HOME/google-cloud-sdk/path.zsh.inc"
 
