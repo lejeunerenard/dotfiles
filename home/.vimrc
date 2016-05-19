@@ -457,12 +457,19 @@ let g:syntastic_mode_map = { 'mode': 'active',
    \ 'active_filetypes': [],
    \ 'passive_filetypes': [''] }
 let g:syntastic_perl_checkers = ['perl']
-let g:syntastic_javascript_checkers = ['jshint']
 " Takes so freakin long. Ill have to look into what is causing it.
 "let g:syntastic_aggregate_errors = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_enable_perl_checker = 1
 let g:syntastic_always_populate_loc_list = 1
+
+" Check which js checker to use
+silent execute "!node -e 'require.resolve(\"standard\")' 2>/dev/null"
+if !v:shell_error
+    let g:syntastic_javascript_checkers = ['standard']
+else
+    let g:syntastic_javascript_checkers = ['jshint']
+endif
 
 " HTML::Template
 let g:syntastic_ignore_files = ['\m\c.tmpl$']
