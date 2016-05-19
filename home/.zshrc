@@ -139,6 +139,13 @@ if [ -d ~/.nvm ]; then
    if [[ $OSTYPE == "darwin"* ]]; then
       source $(brew --prefix nvm)/nvm.sh
    fi
+   autoload -U add-zsh-hook
+   load-nvmrc() {
+      if [[ -f .nvmrc && -r .nvmrc ]]; then
+        nvm use
+      fi
+   }
+   add-zsh-hook chpwd load-nvmrc
 fi
 
 # make it easier to run things in node_modules
