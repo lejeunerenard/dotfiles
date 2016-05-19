@@ -106,9 +106,6 @@ source $HOME/.homesick/repos/z/z.sh
 source $HOME/.homesick/repos/k/k.sh
 alias k='k -A';
 
-# Git permissions
-#source $HOME/.homesick/repos/dotfiles/git-perm.sh
-
 # DBICM Wrapper
 source $HOME/.homesick/repos/dbic-migration-env/dbicm-env.sh
 
