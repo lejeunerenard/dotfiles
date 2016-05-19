@@ -154,6 +154,25 @@ if [ ! hash npm 2>/dev/null ]; then
    alias ne='npm-exec'
 fi
 
+###-begin-yo-completion-###
+_yo_completion () {
+  local cword line point words si
+  read -Ac words
+  read -cn cword
+  let cword-=1
+  read -l line
+  read -ln point
+  si="$IFS"
+  IFS=$'\n' reply=($(COMP_CWORD="$cword" \
+                     COMP_LINE="$line" \
+                     COMP_POINT="$point" \
+                     yo-complete completion -- "${words[@]}" \
+                     2>/dev/null)) || return $?
+  IFS="$si"
+}
+compctl -K _yo_completion yo
+###-end-yo-completion-###
+
 # Perl6 via rakudobrew
 if test -d $HOME/.rakudobrew; then
   pathadd "$HOME/.rakudobrew/bin"
