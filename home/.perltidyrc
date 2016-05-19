@@ -1,2 +1,7 @@
+# Whitespace
+-i=4
+
+# Nesting
 -sot
 -sct
+-ce
