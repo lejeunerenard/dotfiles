@@ -58,7 +58,7 @@ if has("python") " Check for support
    Plug 'JazzCore/ctrlp-cmatcher', { 'do': './install.sh' }
 endif
 if v:version > 703 || (v:version == 703 && has('patch584'))
-  Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
+  Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
 endif
 
 " Language specific
