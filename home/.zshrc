@@ -117,7 +117,25 @@ fi
 if hash plenv 2>/dev/null && [ -d $HOME/.plenv/bin ]; then
   pathadd "$HOME/.plenv/bin"
   pathadd "$HOME/.plenv/shims"
-  eval "$(plenv init -)"
+
+  # Source: `plenv init -`
+  # Removed the duplicate PATH addition to avoid compounding PATH paths
+  export PLENV_SHELL=zsh
+  source '/Users/seanzellmer/.plenv/libexec/../completions/plenv.zsh'
+  plenv() {
+    local command
+    command="$1"
+    if [ "$#" -gt 0 ]; then
+      shift
+    fi
+
+    case "$command" in
+    rehash|shell)
+      eval "`plenv "sh-$command" "$@"`";;
+    *)
+      command plenv "$command" "$@";;
+    esac
+  }
 fi
 
 # Rbenv setup
@@ -201,6 +219,7 @@ if [[ $OSTYPE == "darwin"* ]]; then
 fi
 
 # Google Cloud SDK.
+# This will cause a dupe dir in $PATH on reload
 if [ -d $HOME/Library/Android ]; then
    # The next line updates PATH
    source "$HOME/google-cloud-sdk/path.zsh.inc"
