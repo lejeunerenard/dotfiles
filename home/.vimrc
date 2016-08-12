@@ -464,9 +464,12 @@ let g:syntastic_enable_perl_checker = 1
 let g:syntastic_always_populate_loc_list = 1
 
 " Check which js checker to use
-silent execute "!node -e 'require.resolve(\"standard\")' 2>/dev/null"
-if !v:shell_error
+let jsmodules = system("npm ls --depth=0 --parseable 2>/dev/null")
+if match(jsmodules, '\/standard\n') + 1
     let g:syntastic_javascript_checkers = ['standard']
+elseif match(jsmodules, '\/eslint\n') + 1
+    let g:syntastic_javascript_checkers = ['eslint']
+    let g:syntastic_javascript_eslint_exec = 'eslint_d'
 else
     let g:syntastic_javascript_checkers = ['jshint']
 endif
