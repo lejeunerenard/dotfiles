@@ -477,7 +477,6 @@ let g:syntastic_ignore_files = ['\m\c.tmpl$']
 
 
 " Color Scheme {{{2
-let g:seoul256_background = 236
 colo seoul256
 set background=dark
 
