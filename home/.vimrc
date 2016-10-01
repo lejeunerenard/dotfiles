@@ -1,9 +1,5 @@
 " vim: foldmethod=marker
-set nocompatible
-
 let s:darwin = has('mac')
-
-filetype off   " required!
 
 " --- Plugins --- {{{1
 call plug#begin('~/.vim/plugged')
@@ -85,7 +81,6 @@ endif
 
 " All of your Plugins must be added before the following line
 call plug#end()
-filetype plugin indent on     " required!
 
 " --- General settings --- {{{1
 
