@@ -9,7 +9,7 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-abolish'
 Plug 'junegunn/seoul256.vim'
-Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'ervandew/supertab'
 Plug 'nelstrom/vim-qargs'
 Plug 'AndrewRadev/linediff.vim'
@@ -33,7 +33,7 @@ Plug 'sjl/gundo.vim'
 Plug 'terryma/vim-multiple-cursors'
 
 " Formating
-Plug 'scrooloose/syntastic'
+Plug 'scrooloose/syntastic', { 'on': 'SyntasticCheck' }
 Plug 'editorconfig/editorconfig-vim'
 Plug 'godlygeek/tabular'
 Plug 'tomtom/tcomment_vim'
