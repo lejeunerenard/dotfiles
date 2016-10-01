@@ -18,6 +18,11 @@ Plug 'ervandew/supertab'
 Plug 'nelstrom/vim-qargs'
 Plug 'AndrewRadev/linediff.vim'
 Plug 'itchyny/lightline.vim'
+Plug 'benmills/vimux'
+Plug 'junegunn/vim-peekaboo'
+
+" Writing
+Plug 'junegunn/goyo.vim'
 
 " Version control
 Plug 'tpope/vim-fugitive'
@@ -73,17 +78,10 @@ Plug 'jelera/vim-javascript-syntax'
 Plug 'pangloss/vim-javascript'
 Plug 'marijnh/tern_for_vim', { 'do': 'npm install' }
 
-" Experimental
-Plug 'benmills/vimux'
-Plug 'suan/vim-instant-markdown'
+" Markdown
 if s:darwin
    Plug 'junegunn/vim-xmark', { 'do': 'make'  }
 endif
-Plug 'junegunn/vim-peekaboo'
-Plug 'junegunn/goyo.vim'
-" Potentially useful in the future
-" Plug 'mattn/webapi-vim'
-Plug 'mattn/gist-vim'
 
 " All of your Plugins must be added before the following line
 call plug#end()
