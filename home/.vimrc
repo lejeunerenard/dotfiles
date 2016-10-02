@@ -14,7 +14,8 @@ Plug 'ervandew/supertab'
 Plug 'nelstrom/vim-qargs'
 Plug 'AndrewRadev/linediff.vim'
 Plug 'itchyny/lightline.vim'
-Plug 'benmills/vimux'
+Plug 'benmills/vimux', { 'on': [
+  \'VimuxRunLastCommand', 'VimuxPromptCommand', 'VimuxSetPane'] }
 Plug 'junegunn/vim-peekaboo'
 
 " Writing
@@ -29,7 +30,7 @@ Plug 'tpope/vim-surround'
 Plug 'mattn/emmet-vim'
 Plug 'tommcdo/vim-exchange'
 Plug 'jiangmiao/auto-pairs'
-Plug 'sjl/gundo.vim'
+Plug 'sjl/gundo.vim', { 'on': 'GundoShow'}
 Plug 'terryma/vim-multiple-cursors'
 
 " Formating
@@ -39,44 +40,49 @@ Plug 'godlygeek/tabular'
 Plug 'tomtom/tcomment_vim'
 Plug 'AndrewRadev/splitjoin.vim'
 
-" Snippets
-if has("python") " Check for support
-   Plug 'SirVer/ultisnips'
-else
+" Snippets & completion
+Plug 'SirVer/ultisnips', { 'on': [] }
+if !has('python')
    Plug 'MarcWeber/vim-addon-mw-utils'
    Plug 'tomtom/tlib_vim'
    Plug 'garbas/vim-snipmate'
 endif
-Plug 'honza/vim-snippets'
+" Plug 'honza/vim-snippets', { 'on': [] }
+if v:version > 703 || (v:version == 703 && has('patch584'))
+  Plug 'Valloric/YouCompleteMe', { 'on': [], 'do': './install.py --tern-completer' }
+endif
+
+augroup load_us_ycm
+  autocmd!
+  autocmd InsertEnter * call plug#load('ultisnips', 'YouCompleteMe')
+                     \| autocmd! load_us_ycm
+augroup END
 
 " Searching
 Plug 'taglist.vim'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'mileszs/ack.vim'
+Plug 'mileszs/ack.vim', { 'on': 'Ack' }
 Plug 'tacahiroy/ctrlp-funky'
 " These require compilation
-if has("python") " Check for support
+if has('python')
    Plug 'JazzCore/ctrlp-cmatcher', { 'do': './install.sh' }
-endif
-if v:version > 703 || (v:version == 703 && has('patch584'))
-  Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
 endif
 
 " Language specific
-Plug 'dbakker/vim-lint'
+Plug 'dbakker/vim-lint', { 'for': 'vim' }
 
 " Perl
-Plug 'vim-perl/vim-perl'
-Plug 'c9s/perlomni.vim'
+Plug 'vim-perl/vim-perl', { 'for': 'perl' }
+Plug 'c9s/perlomni.vim', { 'for': 'perl' }
 
 " JS
-Plug 'jelera/vim-javascript-syntax'
-Plug 'pangloss/vim-javascript'
-Plug 'marijnh/tern_for_vim', { 'do': 'npm install' }
+Plug 'jelera/vim-javascript-syntax', { 'for': 'javascript' }
+Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+Plug 'marijnh/tern_for_vim', { 'do': 'npm install', 'for': 'javascript' }
 
 " Markdown
 if s:darwin
-   Plug 'junegunn/vim-xmark', { 'do': 'make'  }
+   Plug 'junegunn/vim-xmark', { 'do': 'make', 'for': 'markdown'  }
 endif
 
 " All of your Plugins must be added before the following line
