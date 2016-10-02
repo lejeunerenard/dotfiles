@@ -282,6 +282,16 @@ else
    let os = substitute(system('uname'), "\n", "", "")
 endif
 
+" Color Scheme {{{2
+colo seoul256
+set background=dark
+
+" Highlighting
+" source: http://askubuntu.com/a/514524
+set t_ZH=[3m
+set t_ZR=[23m
+
+highlight Comment cterm=italic
 " --- Plugins Settings --- {{{1
 
 " lightline {{{2
@@ -477,9 +487,6 @@ endif
 let g:syntastic_ignore_files = ['\m\c.tmpl$']
 
 
-" Color Scheme {{{2
-colo seoul256
-set background=dark
 
 " Markdown plugins {{{2
 " Open markdown files with Chrome.
