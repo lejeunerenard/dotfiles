@@ -1,5 +1,6 @@
 # Path to your oh-my-zsh configuration.
-ZSH=$HOME/.homesick/repos/oh-my-zsh
+HOMESHICK_REPOS=$HOME/.homesick/repos
+ZSH=$HOMESHICK_REPOS/oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -26,7 +27,7 @@ setopt interactivecomments
 # Include custom theme
 # Override default $HOME/.hostAliases
 #HOST_ALIASES=$HOME/.aliashost
-source $HOME/.homesick/repos/dotfiles/themes/ljr.zsh-theme
+source $HOMESHICK_REPOS/dotfiles/themes/ljr.zsh-theme
 
 # ===== Environmental variables =====
 
@@ -94,7 +95,7 @@ _growl_pre_irc() {
 }
 alias irc="_growl_pre_irc"
 
-source $HOME/.homesick/repos/homeshick/homeshick.sh
+source $HOMESHICK_REPOS/homeshick/homeshick.sh
 
 # Setup Z
 source $HOME/.homesick/repos/z/z.sh
@@ -106,7 +107,7 @@ alias k='k -A';
 # DBICM Wrapper
 source $HOME/.homesick/repos/dbic-migration-env/dbicm-env.sh
 
-fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
+fpath=($HOMESHICK_REPOS/homeshick/completions $fpath)
 
 # On mac for brew
 if [[ $OSTYPE == "darwin"* ]]; then
