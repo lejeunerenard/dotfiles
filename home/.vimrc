@@ -525,6 +525,9 @@ let g:multi_cursor_skip_key='<C-x>'
 let g:multi_cursor_quit_key='<Esc>'
 " Map start key the same as the next key
 let g:multi_cursor_start_key='<C-g>'
+" Tabularize {{{2
+map <Leader>t :Tabularize /<bar><CR>
+
 " --- Language Settings --- {{{1
 
 " Perl {{{2
