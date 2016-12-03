@@ -30,13 +30,7 @@ setopt interactivecomments
 source $HOMESHICK_REPOS/dotfiles/themes/ljr.zsh-theme
 
 # ===== Environmental variables =====
-
-# source: http://superuser.com/a/39995
-pathadd() {
-  if [ -d "$1" ] && [[ ":$PATH:" != *":$1:"* ]]; then
-    PATH="$1${PATH:+":$PATH"}"
-  fi
-}
+source "$HOMESHICK_REPOS/dotfiles/pathadd.zsh"
 
 # Customize items
 pathadd "/bin"
@@ -47,6 +41,11 @@ pathadd "/usr/local/sbin"
 pathadd "/usr/local/bin"
 pathadd "/usr/lib/lightdm/lightdm"
 pathadd "$HOME/bin"
+
+# Local exports
+if [ -f $HOME/.exports ]; then
+  source $HOME/.exports
+fi
 
 # Perl local::lib
 # if not already concatenated, concatenate
