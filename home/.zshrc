@@ -214,3 +214,10 @@ if [ -d $HOME/Library/Android ]; then
    # The next line enables shell command completion
    source "$HOME/google-cloud-sdk/completion.zsh.inc"
 fi
+
+# Modular zsh loading per machine
+if [ -d $HOME/.zshrc.d ]; then
+  for file in $HOME/.zshrc.d/*.zsh; do
+    source $file
+  done
+fi
