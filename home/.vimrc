@@ -34,7 +34,7 @@ Plug 'sjl/gundo.vim', { 'on': 'GundoShow'}
 Plug 'terryma/vim-multiple-cursors'
 
 " Formating
-Plug 'scrooloose/syntastic', { 'on': 'SyntasticCheck' }
+Plug 'w0rp/ale'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'godlygeek/tabular'
 Plug 'tomtom/tcomment_vim'
@@ -461,6 +461,62 @@ let g:peekaboo_delay = 750
 " vim-surround {{{2
 nmap cd viW<Tab>dumper<Tab>
 
+" ALE Settings {{{2
+
+let g:ale_lint_delay = 10
+let g:ale_sign_column_always = 1
+
+function! DetectJSLinter(cb)
+  let Callback = function(a:cb)
+  if v:version < 800
+    let detectedJSLinter = DetectJSLinterSync()
+    return Callback(detectedJSLinter)
+  else
+    call DetectJSLinterAsync(Callback)
+  endif
+endfunction
+
+function! DetectJSLinterAsyncCB(channel, msg)
+  " Get STDOUT
+  let linter = a:msg
+  call g:Js_lint_async(linter)
+endfunction
+
+function! DetectJSLinterAsync(cb)
+  let g:Js_lint_async = a:cb
+  call job_start(['node', $HOME . '/bin/detect-js-linter.js'], {'out_cb': 'DetectJSLinterAsyncCB'})
+endfunction
+function! DetectJSLinterSync()
+  let jsmodules = system("node " . $HOME . "/bin/detect-js-linter.js")
+  return jsmodules
+endfunction
+
+let g:ale_linters = {
+\   'javascript': ['standard'],
+\   'javascript.jsx': ['standard'],
+\}
+let g:ale_javascript_eslint_executable = 'eslint_d'
+
+function! SetALEJSLinter(linter)
+  if a:linter == 'eslint'
+    let b:ale_linters = { 'javascript': ['eslint'], 'javascript.jsx': ['eslint'] }
+    let g:ale_javascript_eslint_use_global = 1
+    let g:ale_javascript_eslint_executable = 'eslint_d'
+  elseif a:linter == 'jshint'
+    let b:ale_linters = { 'javascript': ['jshint'], 'javascript.jsx': ['jshint'] }
+  elseif a:linter == 'standard'
+    let b:ale_linters = { 'javascript': ['standard'] }
+  endif
+endfunction
+function! DetermineALEJSLinter()
+  call DetectJSLinter('SetALEJSLinter')
+endfunction
+
+augroup FiletypeGroup
+  autocmd!
+  au BufNewFile,BufRead *.js,*.jsx :call DetermineALEJSLinter()
+augroup END
+
 " Syntastic Settings {{{2
 let g:syntastic_perl_checkers = ['perl']
 let g:syntastic_check_on_open = 1
@@ -480,8 +536,6 @@ endif
 
 " HTML::Template
 let g:syntastic_ignore_files = ['\m\c.tmpl$']
-
-
 
 " Markdown plugins {{{2
 " Open markdown files with Chrome.
