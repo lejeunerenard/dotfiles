@@ -454,6 +454,7 @@ let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|local'
 " Fugitive {{{2
 " Git branch statusline
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+command! Gd Gdiff
 
 " Peekaboo {{{2
 " Delay opening of peekaboo window (in ms. default: 0)
