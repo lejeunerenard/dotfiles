@@ -461,6 +461,7 @@ if has("python") " Check for support
    let g:ctrlp_match_func = {'match' : 'matcher#cmatch' }
 endif
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|local'
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 " Fugitive {{{2
 " Git branch statusline
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
