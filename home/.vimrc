@@ -302,6 +302,7 @@ set t_ZH=[3m
 set t_ZR=[23m
 
 highlight Comment cterm=italic
+
 " --- Plugins Settings --- {{{1
 
 " lightline {{{2
