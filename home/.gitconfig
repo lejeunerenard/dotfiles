@@ -1,6 +1,7 @@
 [user]
 	name = Sean Zellmer
 	email = sean@lejeunerenard.com
+	signingkey = 31660419
 [color]
 	ui = auto
 [core]
@@ -10,3 +11,5 @@
 	default = simple
 [include]
   path = ~/.machine-gitconfig
+[commit]
+	gpgsign = true
