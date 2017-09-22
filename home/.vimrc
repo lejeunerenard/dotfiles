@@ -1,6 +1,10 @@
 " vim: foldmethod=marker
 let s:darwin = has('mac')
 
+if s:darwin
+  set backupskip=/tmp/*,$TMPDIR/*,$TMP/*,$TEMP/*,/private/tmp/*
+endif
+
 " --- Plugins --- {{{1
 call plug#begin('~/.vim/plugged')
 
