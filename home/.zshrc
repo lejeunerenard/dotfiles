@@ -11,6 +11,8 @@ source $ZSH/oh-my-zsh.sh
 # From http://stackoverflow.com/a/11873793/630490
 setopt interactivecomments
 
+setopt extendedglob
+
 # Include custom theme
 # Override default $HOME/.hostAliases
 #HOST_ALIASES=$HOME/.aliashost
@@ -216,7 +218,7 @@ if [ -d $HOME/Library/Android ]; then
 fi
 
 # Modular zsh loading per machine
-if [ -d $HOME/.zshrc.d ]; then
+if [[ -d "$HOME/.zshrc.d" && -n $HOME/.zshrc.d/*.zsh(#qN) ]]; then
   for file in $HOME/.zshrc.d/*.zsh; do
     source $file
   done
