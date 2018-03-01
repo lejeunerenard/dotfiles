@@ -68,7 +68,7 @@ fi
 _growl_pre_irc() {
    # Initiate tunnel if it hasnt fired
    if ! ps ax | grep '[i]rssi' > /dev/null; then
-      ~/irssi-growler/irssi_growler 2>&1 > /dev/null &!
+      $HOME/irssi-growler/irssi_growler 2>&1 > /dev/null &!
    fi
 
    # connect to the remote tmux session
@@ -110,7 +110,7 @@ if hash plenv 2>/dev/null && [ -d $HOME/.plenv/bin ]; then
   # Source: `plenv init -`
   # Removed the duplicate PATH addition to avoid compounding PATH paths
   export PLENV_SHELL=zsh
-  source '/Users/seanzellmer/.plenv/libexec/../completions/plenv.zsh'
+  source "$HOME/.plenv/libexec/../completions/plenv.zsh"
   plenv() {
     local command
     command="$1"
@@ -135,8 +135,8 @@ if hash rbenv 2>/dev/null && [ -d $HOME/.rbenv/bin ]; then
 fi
 
 # nvm
-if [ -d ~/.nvm ]; then
-   export NVM_DIR=~/.nvm
+if [ -d $HOME/.nvm ]; then
+   export NVM_DIR=$HOME/.nvm
    if [[ $OSTYPE == "darwin"* ]]; then
       source $(brew --prefix nvm)/nvm.sh
    fi
@@ -195,8 +195,8 @@ autoload -U compinit
 compinit
 
 # Highlighting on the cmd line (*.* )
-if [ -d ~/.homesick/repos/zsh-syntax-highlighting ]; then
-   source ~/.homesick/repos/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+if [ -d $HOME/.homesick/repos/zsh-syntax-highlighting ]; then
+   source $HOME/.homesick/repos/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
 # Get to project root ( stolen from NickTomlin )
