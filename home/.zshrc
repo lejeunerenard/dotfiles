@@ -185,3 +185,7 @@ if [[ -d "$HOME/.zshrc.d" && -n $HOME/.zshrc.d/*.zsh(#qN) ]]; then
     source $file
   done
 fi
+
+# tabtab source for electron-forge package
+# uninstall by removing these lines or running `tabtab uninstall electron-forge`
+[[ -f $HOME/.nvm/versions/node/v7.10.1/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.zsh ]] && . $HOME/.nvm/versions/node/v7.10.1/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.zsh
