@@ -64,25 +64,6 @@ if hash jiffy 2>/dev/null; then
    alias j='jiffy'
 fi
 
-# IRC remote tmux session with growl tunnel support
-_growl_pre_irc() {
-   # Initiate tunnel if it hasnt fired
-   if ! ps ax | grep '[i]rssi' > /dev/null; then
-      $HOME/irssi-growler/irssi_growler 2>&1 > /dev/null &!
-   fi
-
-   # connect to the remote tmux session
-   ssh seanz@haxiom.io -t tmux attach -t irssi;
-
-   # Get all the pids of growl related processes
-   growl_pids=$( ps ax | grep '[i]rssi' | awk '{print $1}' )
-   # Look through them with the \n delimiter
-   while IFS="\n" read -r pid ; do
-      kill $pid
-   done <<<"$growl_pids"
-}
-alias irc="_growl_pre_irc"
-
 source $HOMESHICK_REPOS/homeshick/homeshick.sh
 
 # Setup Z
@@ -154,25 +135,6 @@ if [ ! hash npm 2>/dev/null ]; then
    alias npm-exec='env PATH="$(npm bin):$PATH"'
    alias ne='npm-exec'
 fi
-
-###-begin-yo-completion-###
-_yo_completion () {
-  local cword line point words si
-  read -Ac words
-  read -cn cword
-  let cword-=1
-  read -l line
-  read -ln point
-  si="$IFS"
-  IFS=$'\n' reply=($(COMP_CWORD="$cword" \
-                     COMP_LINE="$line" \
-                     COMP_POINT="$point" \
-                     yo-complete completion -- "${words[@]}" \
-                     2>/dev/null)) || return $?
-  IFS="$si"
-}
-compctl -K _yo_completion yo
-###-end-yo-completion-###
 
 # Perl6 via rakudobrew
 if test -d $HOME/.rakudobrew; then
