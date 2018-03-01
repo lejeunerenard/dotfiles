@@ -37,7 +37,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'sjl/gundo.vim', { 'on': 'GundoShow'}
 Plug 'terryma/vim-multiple-cursors'
 
-" Formating
+" Formatting
 Plug 'w0rp/ale'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'godlygeek/tabular'
