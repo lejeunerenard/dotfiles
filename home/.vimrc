@@ -84,6 +84,9 @@ Plug 'jelera/vim-javascript-syntax', { 'for': 'javascript' }
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'marijnh/tern_for_vim', { 'do': 'npm install', 'for': 'javascript' }
 
+" GLSL
+Plug 'tikhomirov/vim-glsl', { 'for': 'glsl' }
+
 " Markdown
 if s:darwin
    Plug 'junegunn/vim-xmark', { 'do': 'make', 'for': 'markdown'  }
