@@ -288,13 +288,6 @@ inoremap <esc> <nop>
 :set incsearch
 
 
-" Detect OS
-if has("win16") || has("win32") || has("win64")
-   let os = 'win'
-else
-   let os = substitute(system('uname'), "\n", "", "")
-endif
-
 " Color Scheme {{{2
 colo seoul256
 set background=dark
@@ -555,9 +548,9 @@ let g:syntastic_ignore_files = ['\m\c.tmpl$']
 
 " Markdown plugins {{{2
 " Open markdown files with Chrome.
-if os == "Darwin"
+if s:darwin
    autocmd BufEnter *.md exe 'noremap <F5> :!open -a "Google Chrome.app" %:p<CR>'
-elseif os == "win"
+elseif has('win32')
    autocmd BufEnter *.md exe 'noremap <F5> :!chromium-browser %:p<CR>'
 endif
 
