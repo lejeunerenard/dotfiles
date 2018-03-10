@@ -306,7 +306,7 @@ set noshowmode
 let g:lightline = {
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ], ['ctrlpmark'] ],
-      \   'right': [ [ 'syntastic', 'lineinfo' ], ['percent'], [ 'fileformat', 'fileencoding', 'filetype' ] ]
+      \   'right': [ ['percent'], [ 'fileformat', 'fileencoding', 'filetype' ] ]
       \ },
       \ 'component_function': {
       \   'fugitive': 'LightLineFugitive',
@@ -316,12 +316,6 @@ let g:lightline = {
       \   'fileencoding': 'LightLineFileencoding',
       \   'mode': 'LightLineMode',
       \   'ctrlpmark': 'CtrlPMark',
-      \ },
-      \ 'component_expand': {
-      \   'syntastic': 'SyntasticStatuslineFlag',
-      \ },
-      \ 'component_type': {
-      \   'syntastic': 'error',
       \ },
       \ 'subseparator': { 'left': '|', 'right': '|' }
       \ }
@@ -416,15 +410,6 @@ let g:tagbar_status_func = 'TagbarStatusFunc'
 function! TagbarStatusFunc(current, sort, fname, ...) abort
     let g:lightline.fname = a:fname
   return lightline#statusline(0)
-endfunction
-
-augroup AutoSyntastic
-  autocmd!
-  autocmd BufWritePost *.c,*.cpp call s:syntastic()
-augroup END
-function! s:syntastic()
-  SyntasticCheck
-  call lightline#update()
 endfunction
 
 let g:unite_force_overwrite_statusline = 0
@@ -525,26 +510,6 @@ augroup FiletypeGroup
   autocmd!
   au BufNewFile,BufRead *.js,*.jsx :call DetermineALEJSLinter()
 augroup END
-
-" Syntastic Settings {{{2
-let g:syntastic_perl_checkers = ['perl']
-let g:syntastic_check_on_open = 1
-let g:syntastic_enable_perl_checker = 1
-let g:syntastic_always_populate_loc_list = 1
-
-" Check which js checker to use
-let jsmodules = system("npm ls --depth=0 --parseable 2>/dev/null")
-if match(jsmodules, '\/standard\n') + 1
-    let g:syntastic_javascript_checkers = ['standard']
-elseif match(jsmodules, '\/eslint\n') + 1
-    let g:syntastic_javascript_checkers = ['eslint']
-    let g:syntastic_javascript_eslint_exec = 'eslint_d'
-else
-    let g:syntastic_javascript_checkers = ['jshint']
-endif
-
-" HTML::Template
-let g:syntastic_ignore_files = ['\m\c.tmpl$']
 
 " Markdown plugins {{{2
 " Open markdown files with Chrome.
