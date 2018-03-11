@@ -58,6 +58,7 @@ alias tmux="TERM=screen-256color-bce tmux"
 
 # Git alias
 alias gdc="git diff --cached"
+alias s="git status -s"
 
 # Add jiffy alias if able
 if hash jiffy 2>/dev/null; then
