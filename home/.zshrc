@@ -112,22 +112,37 @@ fi
 if hash rbenv 2>/dev/null && [ -d $HOME/.rbenv/bin ]; then
   pathadd "$HOME/.rbenv/bin"
   pathadd "$HOME/.rbenv/shims"
-  eval "$(rbenv init -)"
+  load-rbenv() {
+    if [[ -f .ruby-version && -r .ruby-version ]]; then
+      if ! type rbenv > /dev/null; then
+        eval "$(rbenv init -)"
+      fi
+    fi
+  }
+  add-zsh-hook chpwd load-rbenv
 fi
 
 # nvm
 if [ -d $HOME/.nvm ]; then
-   export NVM_DIR=$HOME/.nvm
-   if [[ $OSTYPE == "darwin"* ]]; then
-      source $(brew --prefix nvm)/nvm.sh
-   fi
-   autoload -U add-zsh-hook
-   load-nvmrc() {
-      if [[ -f .nvmrc && -r .nvmrc ]]; then
-        nvm use
+  function load-nvm () {
+    if [[ $OSTYPE == "darwin"* ]]; then
+      export NVM_DIR=$HOME/.nvm
+      [[ -s $(brew --prefix nvm)/nvm.sh ]] && source $(brew --prefix nvm)/nvm.sh
+    else
+      [[ -s "$HOME/.nvm/nvm.sh" ]] && source "$HOME/.nvm/nvm.sh"
+    fi
+  }
+
+  autoload -U add-zsh-hook
+  load-nvmrc() {
+    if [[ -f .nvmrc && -r .nvmrc ]]; then
+      if ! type nvm > /dev/null; then
+        load-nvm
       fi
-   }
-   add-zsh-hook chpwd load-nvmrc
+      nvm use
+    fi
+  }
+  add-zsh-hook chpwd load-nvmrc
 fi
 
 # make it easier to run things in node_modules
