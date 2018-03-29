@@ -144,6 +144,42 @@ if [ -d $HOME/.nvm ]; then
     fi
   }
   add-zsh-hook chpwd load-nvmrc
+
+  # Check for .nvmrc in pwd
+  # TODO
+
+  # Else autoload current version of node
+  getStableNodeVersionDir() {
+    NVM_DIR=$HOME/.nvm
+    PATTERN='8.9*'
+    SEARCH_PATTERN='8\.9'
+    NVM_DIRS_TO_SEARCH=$NVM_DIR/versions/node
+    NVM_NODE_PREFIX="node"
+    # source: nvm
+    VERSIONS="$(command find "${NVM_DIRS_TO_SEARCH}"/* -name . -o -type d -prune -o -path "${PATTERN}*" \
+      | command sed -e "
+          s#^${NVM_DIR}/##;
+          \\#^[^v]# d;
+          \\#^versions\$# d;
+          s#^versions/##;
+          s#^v#${NVM_NODE_PREFIX}/v#;
+          \\#${SEARCH_PATTERN}# !d;
+        " \
+        -e 's#^\([^/]\{1,\}\)/\(.*\)$#\2.\1#;' \
+      | command sort -t. -u -k 1.2,1n -k 2,2n -k 3,3n \
+      | command sed -e 's#\(.*\)\.\([^\.]\{1,\}\)$#\2-\1#;' \
+                    -e "s#^${NVM_NODE_PREFIX}-##;" \
+    )"
+    DIR=$NVM_DIRS_TO_SEARCH/$VERSIONS
+    echo $DIR
+  }
+  setNodeToStableVersion() {
+    NODE_DIR="$(getStableNodeVersionDir)"
+    NODE_VERSION_BIN_DIR="$NODE_DIR/bin"
+    pathadd $NODE_VERSION_BIN_DIR
+    export NVM_BIN="$NODE_VERSION_BIN_DIR"
+  }
+  setNodeToStableVersion
 fi
 
 # make it easier to run things in node_modules
