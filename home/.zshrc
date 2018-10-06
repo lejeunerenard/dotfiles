@@ -3,7 +3,7 @@ HOMESHICK_REPOS=$HOME/.homesick/repos
 ZSH=$HOMESHICK_REPOS/oh-my-zsh
 
 # Oh My Zsh Plugins
-plugins=(git cpanm perl bower github vagrant npm node nvm vundle gitignore)
+plugins=(gitfast cpanm perl bower github vagrant npm node nvm vundle gitignore)
 
 source $ZSH/oh-my-zsh.sh
 
