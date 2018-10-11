@@ -55,6 +55,7 @@ alias sshj='ssh∆'
 alias sshp='ssh seanz@173.254.216.2'
 
 alias tmux="TERM=screen-256color-bce tmux"
+alias today='date +%Y-%m-%d'
 
 # Git alias
 alias gdc="git diff --cached"
