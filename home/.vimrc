@@ -511,6 +511,15 @@ augroup FiletypeGroup
   au BufNewFile,BufRead *.js,*.jsx :call DetermineALEJSLinter()
 augroup END
 
+highlight ALEStyleWarning ctermfg=Black
+highlight ALEStyleWarning ctermbg=Yellow
+highlight ALEWarning ctermfg=Black
+highlight ALEWarning ctermbg=Yellow
+highlight ALEStyleError ctermfg=Black
+highlight ALEStyleError ctermbg=Red
+highlight ALEError ctermfg=Black
+highlight ALEError ctermbg=Red
+
 " Markdown plugins {{{2
 " Open markdown files with Chrome.
 if s:darwin
