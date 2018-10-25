@@ -174,7 +174,7 @@ if [ -d $HOME/.nvm ]; then
   setNodeToStableVersion() {
     NODE_DIR="$(getStableNodeVersionDir)"
     NODE_VERSION_BIN_DIR="$NODE_DIR/bin"
-    pathadd $NODE_VERSION_BIN_DIR
+    PATH="$NODE_VERSION_BIN_DIR${PATH:+":$PATH"}"
     export NVM_BIN="$NODE_VERSION_BIN_DIR"
   }
   setNodeToStableVersion
