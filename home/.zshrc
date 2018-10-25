@@ -146,9 +146,6 @@ if [ -d $HOME/.nvm ]; then
   }
   add-zsh-hook chpwd load-nvmrc
 
-  # Check for .nvmrc in pwd
-  # TODO
-
   # Else autoload current version of node
   getStableNodeVersionDir() {
     NVM_DIR=$HOME/.nvm
@@ -181,6 +178,9 @@ if [ -d $HOME/.nvm ]; then
     export NVM_BIN="$NODE_VERSION_BIN_DIR"
   }
   setNodeToStableVersion
+
+  # Check for .nvmrc in pwd after loading default
+  load-nvmrc
 fi
 
 # make it easier to run things in node_modules
