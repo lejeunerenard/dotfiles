@@ -63,7 +63,7 @@ augroup load_us_ycm
 augroup END
 
 " Searching
-Plug 'taglist.vim'
+Plug 'vim-scripts/taglist.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mileszs/ack.vim', { 'on': 'Ack' }
 Plug 'tacahiroy/ctrlp-funky'
