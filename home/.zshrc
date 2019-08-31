@@ -75,9 +75,6 @@ source $HOME/.homesick/repos/z/z.sh
 source $HOME/.homesick/repos/k/k.sh
 alias k='k -A';
 
-# DBICM Wrapper
-source $HOME/.homesick/repos/dbic-migration-env/dbicm-env.sh
-
 fpath=($HOMESHICK_REPOS/homeshick/completions $fpath)
 
 # On mac for brew
