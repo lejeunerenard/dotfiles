@@ -540,6 +540,11 @@ endif
 let g:instant_markdown_autostart = 0
 let g:instant_markdown_slow = 1
 
+augroup markdownSettings
+   autocmd!
+   autocmd FileType markdown setl tw=80
+augroup END
+
 " Vimux {{{2
 let g:VimuxOrientation = "v"
 map <Leader>vl :VimuxRunLastCommand<CR>
