@@ -695,3 +695,11 @@ function! s:TidyAsDiff()
     call setpos('.', pos)
 endfunction
 com! TidyDiff call s:TidyAsDiff()
+
+" PHP {{{2
+" WordPress specific
+fu! SearchWPAck(searchString)
+  exec "Ack --php " . a:searchString . " 'wp-content/plugins' 'wp-content/themes'"
+endf
+
+command! -nargs=1 WpAck call SearchWPAck(<f-args>)
