@@ -303,6 +303,9 @@ set t_ZR=[23m
 
 highlight Comment cterm=italic
 
+" Spelling & Abbreviations {{{2
+iab managment management
+
 " --- Plugins Settings --- {{{1
 
 " lightline {{{2
