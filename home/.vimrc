@@ -6,7 +6,11 @@ if s:darwin
 endif
 
 " --- Plugins --- {{{1
-call plug#begin('~/.vim/plugged')
+if has('win32')
+  call plug#begin('~/vimfiles/plugged')
+else
+  call plug#begin('~/.vim/plugged')
+endif
 
 " General Vim enhancements
 Plug 'tpope/vim-unimpaired'
