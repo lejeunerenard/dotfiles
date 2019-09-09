@@ -291,6 +291,11 @@ inoremap <esc> <nop>
 :set hlsearch
 :set incsearch
 
+" File Searching
+" Use ag for faster searching if available
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
 
 " Color Scheme {{{2
 colo seoul256
