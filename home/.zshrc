@@ -72,8 +72,10 @@ source $HOMESHICK_REPOS/homeshick/homeshick.sh
 source $HOME/.homesick/repos/z/z.sh
 
 # Setup k
-source $HOME/.homesick/repos/k/k.sh
-alias k='k -A';
+if [ -d $HOME/.homesick/repos/k ]; then
+  source $HOME/.homesick/repos/k/k.sh
+  alias k='k -A';
+fi
 
 fpath=($HOMESHICK_REPOS/homeshick/completions $fpath)
 
