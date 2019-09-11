@@ -234,6 +234,7 @@ if [[ -d "$HOME/.zshrc.d" && -n $HOME/.zshrc.d/*.zsh(#qN) ]]; then
   done
 fi
 
+# ===== Autocompletes =====
 # tabtab source for electron-forge package
 # uninstall by removing these lines or running `tabtab uninstall electron-forge`
 [[ -f $HOME/.nvm/versions/node/v7.10.1/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.zsh ]] && . $HOME/.nvm/versions/node/v7.10.1/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.zsh
@@ -241,6 +242,7 @@ fi
 # tabtab source for serverless package
 # uninstall by removing these lines or running `tabtab uninstall serverless`
 [[ -f $HOME/.nvm/versions/node/v8.9.2/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . $HOME/.nvm/versions/node/v8.9.2/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
+
 # tabtab source for sls package
 # uninstall by removing these lines or running `tabtab uninstall sls`
 [[ -f $HOME/.nvm/versions/node/v8.9.2/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . $HOME/.nvm/versions/node/v8.9.2/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
