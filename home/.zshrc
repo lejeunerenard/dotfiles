@@ -215,6 +215,30 @@ if [[ $OSTYPE == "darwin"* ]]; then
   }
 fi
 
+# FZF
+if type fzf > /dev/null; then
+  # Load key bindings assuming that fzf was installed with brew
+  . $(brew --prefix)/opt/fzf/shell/key-bindings.zsh
+
+  if type bat > /dev/null; then
+    fzf_find_edit() {
+      local file=$(
+        fzf --no-multi --preview 'bat --color=always --line-range :500 {}'
+      )
+      if [[ -n $file  ]]; then
+        $EDITOR $file
+      fi
+    }
+
+    alias ffe='fzf_find_edit'
+  fi
+
+  # Todoist integration
+  if type todoist > /dev/null; then
+    source "$GOPATH/src/github.com/sachaos/todoist/todoist_functions_fzf.sh"
+  fi
+fi
+
 # Google Cloud SDK.
 # This will cause a dupe dir in $PATH on reload
 if [ -d $HOME/Library/Android ]; then
