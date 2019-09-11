@@ -50,10 +50,6 @@ export EDITOR="vim"
 alias ll='ls -al'
 alias la='ls -A'
 
-alias ssh∆='ssh seanz@173.254.216.23'
-alias sshj='ssh∆'
-alias sshp='ssh seanz@173.254.216.2'
-
 alias tmux="TERM=screen-256color-bce tmux"
 alias today='date +%Y-%m-%d'
 
