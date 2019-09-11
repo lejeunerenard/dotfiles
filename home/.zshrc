@@ -177,6 +177,11 @@ if [ ! hash npm 2>/dev/null ]; then
    alias ne='npm-exec'
 fi
 
+# PHP {{{
+[[ -e $HOME/.phpbrew/bashrc  ]] && source $HOME/.phpbrew/bashrc
+export PHPBREW_RC_ENABLE=1
+# }}}
+
 # Perl6 via rakudobrew
 if test -d $HOME/.rakudobrew; then
   pathadd "$HOME/.rakudobrew/bin"
