@@ -707,3 +707,11 @@ fu! SearchWPAck(searchString)
 endf
 
 command! -nargs=1 WpAck call SearchWPAck(<f-args>)
+
+" GLSL {{{2
+" Daily helpers
+augroup dailyHelpers
+   autocmd!
+   autocmd FileType glsl nnoremap <leader>m gg\|/map\s*(\s*in<cr> zz \| :noh<cr>
+   autocmd FileType glsl nnoremap <leader>c gg\|/baseColor\s*(\s*in<cr> zz \| :noh<cr>
+augroup END
