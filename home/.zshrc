@@ -62,6 +62,7 @@ if hash jiffy 2>/dev/null; then
    alias j='jiffy'
    alias jiffy-delete-last='mongo jiffy --eval "db.timeEntry.findAndModify({ query: {}, sort: {\"_id\": -1}, remove: true })"'
    alias c='jiffy current'
+   alias jd='jiffy done'
 fi
 
 function daily-uniq () {
