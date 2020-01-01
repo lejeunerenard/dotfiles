@@ -64,6 +64,11 @@ if hash jiffy 2>/dev/null; then
    alias c='jiffy current'
 fi
 
+function daily-uniq () {
+  cd $HOME/raymarch
+  git log -p -G "name:\s+'.*$1.*'"
+}
+
 source $HOMESHICK_REPOS/homeshick/homeshick.sh
 
 # Setup Z
