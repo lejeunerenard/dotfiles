@@ -179,7 +179,7 @@ if [ -d $HOME/.nvm ]; then
 fi
 
 # make it easier to run things in node_modules
-if [ ! hash npm 2>/dev/null ]; then
+if hash npm 2>/dev/null; then
    alias npm-exec='env PATH="$(npm bin):$PATH"'
    alias ne='npm-exec'
 fi
