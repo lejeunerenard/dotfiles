@@ -60,6 +60,8 @@ alias s="git status -s"
 # Add jiffy alias if able
 if hash jiffy 2>/dev/null; then
    alias j='jiffy'
+   alias jiffy-delete-last='mongo jiffy --eval "db.timeEntry.findAndModify({ query: {}, sort: {\"_id\": -1}, remove: true })"'
+   alias c='jiffy current'
 fi
 
 source $HOMESHICK_REPOS/homeshick/homeshick.sh
