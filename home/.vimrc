@@ -35,6 +35,8 @@ Plug 'airblade/vim-gitgutter'
 
 " Editing
 Plug 'tpope/vim-surround'
+Plug 'inkarkat/vim-ReplaceWithRegister'
+Plug 'christoomey/vim-titlecase'
 Plug 'mattn/emmet-vim'
 Plug 'tommcdo/vim-exchange'
 Plug 'jiangmiao/auto-pairs'
@@ -45,7 +47,7 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'w0rp/ale'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'godlygeek/tabular'
-Plug 'tomtom/tcomment_vim'
+Plug 'tpope/vim-commentary'
 Plug 'AndrewRadev/splitjoin.vim'
 
 " Snippets & completion
@@ -587,6 +589,9 @@ let g:multi_cursor_start_key='<C-g>'
 " Tabularize {{{2
 map <Leader>t :Tabularize /<bar><CR>
 
+" Titlecase {{{2
+let g:titlecase_map_keys = 0
+
 " --- Language Settings --- {{{1
 
 " Perl {{{2
@@ -715,3 +720,5 @@ augroup dailyHelpers
    autocmd FileType glsl nnoremap <leader>m gg\|/map\s*(\s*in<cr> zz \| :noh<cr>
    autocmd FileType glsl nnoremap <leader>c gg\|/baseColor\s*(\s*in<cr> zz \| :noh<cr>
 augroup END
+
+autocmd FileType glsl setlocal commentstring=//\ %s
