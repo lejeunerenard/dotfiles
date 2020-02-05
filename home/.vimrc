@@ -98,6 +98,9 @@ if s:darwin
    Plug 'junegunn/vim-xmark', { 'do': 'make', 'for': 'markdown'  }
 endif
 
+" Elixir
+Plug 'elixir-editors/vim-elixir'
+
 " All of your Plugins must be added before the following line
 call plug#end()
 
