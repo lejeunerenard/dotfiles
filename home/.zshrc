@@ -59,10 +59,17 @@ alias s="git status -s"
 
 # Add jiffy alias if able
 if hash jiffy 2>/dev/null; then
-   alias j='jiffy'
-   alias jiffy-delete-last='mongo jiffy --eval "db.timeEntry.findAndModify({ query: {}, sort: {\"_id\": -1}, remove: true })"'
-   alias c='jiffy current'
-   alias jd='jiffy done'
+  alias j='jiffy'
+  alias jiffy-delete-last='mongo jiffy --eval "db.timeEntry.findAndModify({ query: {}, sort: {\"_id\": -1}, remove: true })"'
+  alias c='jiffy current'
+  alias jd='jiffy done'
+
+  function jiffy-change-last () {
+    CMD='db.timeEntry.findAndModify({ query: {}, sort: {"_id": -1}, update: {$set:{"title":"'"$@"'"}} })'
+    mongo jiffy --eval $CMD
+  }
+
+  alias jel="jiffy-change-last"
 fi
 
 function daily-uniq () {
