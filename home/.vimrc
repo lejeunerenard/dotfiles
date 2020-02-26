@@ -70,13 +70,10 @@ augroup END
 
 " Searching
 Plug 'vim-scripts/taglist.vim'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mileszs/ack.vim', { 'on': 'Ack' }
-Plug 'tacahiroy/ctrlp-funky'
-" These require compilation
-if has('python')
-   Plug 'JazzCore/ctrlp-cmatcher', { 'do': './install.sh' }
-endif
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --no-bash' }
+Plug 'junegunn/fzf.vim'
+Plug 'pbogut/fzf-mru.vim'
 
 " Language specific
 Plug 'dbakker/vim-lint', { 'for': 'vim' }
@@ -434,6 +431,7 @@ endfunction
 let g:unite_force_overwrite_statusline = 0
 let g:vimfiler_force_overwrite_statusline = 0
 let g:vimshell_force_overwrite_statusline = 0
+
 " YouCompleteMe {{{2
 
 " Completion tweaks
@@ -465,6 +463,10 @@ if has("python") " Check for support
 endif
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|local'
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+
+" FZF {{{2
+" Recreate Ctrlp mapping
+nnoremap <silent> <c-p> :Files<CR>
 
 " Fugitive {{{2
 " Git branch statusline
