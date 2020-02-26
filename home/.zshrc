@@ -241,6 +241,12 @@ if type fzf > /dev/null; then
     alias ffe='fzf_find_edit'
   fi
 
+  if type fd > /dev/null; then
+    export FZF_DEFAULT_COMMAND='fd --type f --color=never'
+    export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+    export FZF_ALT_C_COMMAND='fd --type d . --color=never'
+  fi
+
   # Todoist integration
   if type todoist > /dev/null; then
     source "$GOPATH/src/github.com/sachaos/todoist/todoist_functions_fzf.sh"
