@@ -722,6 +722,7 @@ augroup dailyHelpers
    autocmd!
    autocmd FileType glsl nnoremap <leader>m gg\|/map\s*(\s*in<cr> zz \| :noh<cr>
    autocmd FileType glsl nnoremap <leader>c gg\|/baseColor\s*(\s*in<cr> zz \| :noh<cr>
+   autocmd FileType glsl nnoremap <leader>d gg\|/dispersionStep1(<cr> zz \| :noh<cr>
 augroup END
 
 autocmd FileType glsl setlocal commentstring=//\ %s
