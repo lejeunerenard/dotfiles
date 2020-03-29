@@ -76,6 +76,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'pbogut/fzf-mru.vim'
 
 " Language specific
+" Vimscript
 Plug 'dbakker/vim-lint', { 'for': 'vim' }
 
 " Perl
