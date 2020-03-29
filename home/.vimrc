@@ -57,14 +57,14 @@ if !has('python3')
    Plug 'tomtom/tlib_vim'
    Plug 'garbas/vim-snipmate'
 endif
-" Plug 'honza/vim-snippets', { 'on': [] }
+Plug 'honza/vim-snippets', { 'on': [] }
 if v:version > 703 || (v:version == 703 && has('patch584'))
   Plug 'Valloric/YouCompleteMe', { 'on': [], 'do': './install.py --tern-completer' }
 endif
 
 augroup load_us_ycm
   autocmd!
-  autocmd InsertEnter * call plug#load('ultisnips', 'YouCompleteMe')
+  autocmd InsertEnter * call plug#load('ultisnips', 'vim-snippets', 'YouCompleteMe')
                      \| autocmd! load_us_ycm
 augroup END
 
@@ -415,7 +415,12 @@ let g:SuperTabDefaultCompletionType = '<C-n>'
 let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
-"let g:UltiSnipsSnippetDirectories=["UltiSnips", "snippets"]
+
+" Honza : Vim Snippets {{{2
+let g:ultisnips_javascript = {
+      \ 'semi': 'never',
+      \ 'space-before-function-paren': 'always',
+      \}
 
 " Nerd Tree {{{2
 map <C-n> :NERDTreeToggle<CR>
