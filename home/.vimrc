@@ -52,7 +52,7 @@ Plug 'AndrewRadev/splitjoin.vim'
 
 " Snippets & completion
 Plug 'SirVer/ultisnips', { 'on': [] }
-if !has('python')
+if !has('python3')
    Plug 'MarcWeber/vim-addon-mw-utils'
    Plug 'tomtom/tlib_vim'
    Plug 'garbas/vim-snipmate'
