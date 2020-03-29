@@ -585,12 +585,35 @@ endfunction
 " vim-multiple-cursors {{{2
 let g:multi_cursor_use_default_mapping=0
 " New Mappings
-let g:multi_cursor_next_key='<C-g>'
-let g:multi_cursor_prev_key='<C-p>'
-let g:multi_cursor_skip_key='<C-x>'
-let g:multi_cursor_quit_key='<Esc>'
+let g:multi_cursor_next_key = '<C-g>'
+let g:multi_cursor_prev_key = '<C-p>'
+let g:multi_cursor_skip_key = '<C-x>'
+let g:multi_cursor_quit_key = 'jk'
 " Map start key the same as the next key
-let g:multi_cursor_start_key='<C-g>'
+let g:multi_cursor_start_key = '<C-g>'
+let g:multi_cursor_exit_from_visual_mode = 1
+let g:multi_cursor_exit_from_insert_mode = 1
+
+" Fix conflict between YCM & vim-multiple-cursors
+func! Multiple_cursors_before()
+  if exists("g:ycm_auto_trigger") && g:ycm_auto_trigger
+    let g:ycm_is_enable_before_multi_cursors = 1
+    let g:ycm_auto_trigger = 0
+  else
+    let g:ycm_is_enable_before_multi_cursors = 0
+  endif
+  iunmap jk
+endfunction
+
+func! Multiple_cursors_after()
+  if g:ycm_is_enable_before_multi_cursors
+    let g:ycm_auto_trigger = 1
+  else
+    let g:ycm_auto_trigger = 0
+  endif
+  inoremap jk <esc>
+endfunction
+
 " Tabularize {{{2
 map <Leader>t :Tabularize /<bar><CR>
 
