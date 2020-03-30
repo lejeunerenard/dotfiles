@@ -44,7 +44,7 @@ Plug 'sjl/gundo.vim', { 'on': 'GundoShow'}
 Plug 'terryma/vim-multiple-cursors'
 
 " Formatting
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'godlygeek/tabular'
 Plug 'tpope/vim-commentary'
