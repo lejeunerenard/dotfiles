@@ -49,6 +49,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'godlygeek/tabular'
 Plug 'tpope/vim-commentary'
 Plug 'AndrewRadev/splitjoin.vim'
+Plug 'keith/investigate.vim' " Documentation Lookup
 
 " Snippets & completion
 Plug 'SirVer/ultisnips', { 'on': [] }
@@ -313,6 +314,7 @@ highlight Comment cterm=italic
 
 " Spelling & Abbreviations {{{2
 iab managment management
+" See after/plugin/abolish.vim for more
 
 " --- Plugins Settings --- {{{1
 
