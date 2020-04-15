@@ -433,6 +433,8 @@ let NERDTreeShowHidden=1
 " FZF {{{2
 " Recreate Ctrlp mapping
 nnoremap <silent> <c-p> :GFiles<CR>
+command! -bang -nargs=? -complete=dir GFiles
+    \ call fzf#vim#gitfiles(<q-args>, fzf#vim#with_preview(), <bang>0)
 
 " Fugitive {{{2
 " Git branch statusline
