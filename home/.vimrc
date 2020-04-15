@@ -432,7 +432,7 @@ let NERDTreeShowHidden=1
 
 " FZF {{{2
 " Recreate Ctrlp mapping
-nnoremap <silent> <c-p> :Files<CR>
+nnoremap <silent> <c-p> :GFiles<CR>
 
 " Fugitive {{{2
 " Git branch statusline
