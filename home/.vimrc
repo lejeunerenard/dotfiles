@@ -253,6 +253,7 @@ endfunction
 " Misc {{{2
 syntax on
 set number
+set relativenumber
 filetype on
 set splitright " Natural vertical splitting
 set spell
