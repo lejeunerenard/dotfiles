@@ -452,6 +452,31 @@ function! Maybe_git_files(args, fullscreen)
   endif
 endfunction
 
+if executable('ag')
+" Search using Ag & FZF
+  function! AgFzf(query, fullscreen)
+    let stringTYPE = type('')
+    if type(a:query) != stringTYPE
+      return s:warn('Invalid query argument')
+    endif
+    let query = empty(a:query) ? '^(?=.)' : a:query
+    let args = copy(a:000)
+    let ag_opts = len(args) > 1 && type(args[0]) == stringTYPE ? remove(args, 0) : ''"{{{
+    let command = ag_opts . ' ' . fzf#shellescape(query)"}}}
+
+    let command_fmt = 'ag --nogroup --column --color %s'
+    let initial_command = printf(command_fmt, shellescape(command))
+    let reload_command = printf(command_fmt, '{q}')
+    echom "command"command
+    let spec = {'options': ['--phony', '--query', command, '--bind', 'change:reload:'.reload_command]}
+    call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
+  endfunction
+
+  nnoremap <silent> <leader>s :AG<CR>
+  command! -bang -nargs=* AG
+      \ call AgFzf(<q-args>, <bang>0)
+endif
+
 " Fugitive {{{2
 " Git branch statusline
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
