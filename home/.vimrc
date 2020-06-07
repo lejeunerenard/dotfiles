@@ -433,9 +433,24 @@ let NERDTreeShowHidden=1
 
 " FZF {{{2
 " Recreate Ctrlp mapping
-nnoremap <silent> <c-p> :GFiles<CR>
-command! -bang -nargs=? -complete=dir GFiles
-    \ call fzf#vim#gitfiles(<q-args>, fzf#vim#with_preview(), <bang>0)
+nnoremap <silent> <c-p> :MGFiles<CR>
+command! -bang -nargs=? -complete=dir MGFiles
+    \ call Maybe_git_files(<q-args>, <bang>0)
+" Stolen from fzf.vim
+function! s:get_git_root()
+  let root = split(system('git rev-parse --show-toplevel'), '\n')[0]
+  return v:shell_error ? '' : root
+endfunction
+
+" Custom command for using gitfiles if available
+function! Maybe_git_files(args, fullscreen)
+  let root = s:get_git_root()
+  if empty(root)
+    call fzf#vim#files(a:args, fzf#vim#with_preview(), a:fullscreen)
+  else
+    call fzf#vim#gitfiles(a:args, fzf#vim#with_preview(), a:fullscreen)
+  endif
+endfunction
 
 " Fugitive {{{2
 " Git branch statusline
