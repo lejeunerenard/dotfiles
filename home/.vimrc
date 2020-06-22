@@ -507,6 +507,12 @@ endif
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 command! Gd Gdiff
 
+" GitGutter {{{2
+if has('nvim')
+  let g:gitgutter_highlight_linenrs = 1
+  highlight link GitGutterAddLineNr DiffAdd
+endif
+
 " Peekaboo {{{2
 " Delay opening of peekaboo window (in ms. default: 0)
 let g:peekaboo_delay = 750
