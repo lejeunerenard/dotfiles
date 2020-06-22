@@ -267,6 +267,9 @@ set laststatus=2
 " Show count next to VISUAL
 set showcmd
 
+" Set Leader
+let mapleader = " "
+
 " Disable preview autocomplete
 set completeopt-=preview
 
@@ -282,6 +285,15 @@ map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
+
+" Common action mappings Mappings
+nnoremap <leader>q :q<CR>
+nnoremap <leader>qq :q!<CR>
+nnoremap <leader>qa :qa!<CR>
+nnoremap <leader>w :w<CR>
+" Git specific commands
+nnoremap <leader>gd :Gd<CR>
+nnoremap <leader>gs :Gst<CR>
 
 " Shell config
 " set shell=bash\ -i
