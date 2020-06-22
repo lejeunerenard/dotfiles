@@ -277,8 +277,6 @@ augroup reload_vimrc
    autocmd bufwritepost $MYVIMRC nested source $MYVIMRC
 augroup END
 
-nnoremap <leader>s I#<esc>
-
 " Window navigation
 map <C-h> <C-w>h
 map <C-j> <C-w>j
