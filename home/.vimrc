@@ -299,7 +299,10 @@ nnoremap <leader>gs :Gst<CR>
 " set shell=bash\ -i
 
 " Modes {{{2
-inoremap jk <esc>
+" TODO test for colemak first before setting `ne` vs `jk`. Also figureout how
+" to then set all instances of this mapping correctly throughout setup.
+" inoremap jk <esc>
+inoremap ne <esc>
 inoremap <esc> <nop>
 
 " Searching {{{2
@@ -619,7 +622,7 @@ let g:multi_cursor_use_default_mapping=0
 let g:multi_cursor_next_key = '<C-g>'
 let g:multi_cursor_prev_key = '<C-p>'
 let g:multi_cursor_skip_key = '<C-x>'
-let g:multi_cursor_quit_key = 'jk'
+let g:multi_cursor_quit_key = 'ne'
 " Map start key the same as the next key
 let g:multi_cursor_start_key = '<C-g>'
 let g:multi_cursor_exit_from_visual_mode = 1
@@ -633,7 +636,7 @@ func! Multiple_cursors_before()
   else
     let g:ycm_is_enable_before_multi_cursors = 0
   endif
-  iunmap jk
+  iunmap ne
 endfunction
 
 func! Multiple_cursors_after()
@@ -642,7 +645,7 @@ func! Multiple_cursors_after()
   else
     let g:ycm_auto_trigger = 0
   endif
-  inoremap jk <esc>
+  inoremap ne <esc>
 endfunction
 
 " Tabularize {{{2
