@@ -302,7 +302,8 @@ nnoremap <leader>gs :Gst<CR>
 " TODO test for colemak first before setting `ne` vs `jk`. Also figureout how
 " to then set all instances of this mapping correctly throughout setup.
 " inoremap jk <esc>
-inoremap ne <esc>
+let g:esc_mapping = 'ne'
+execute ':inoremap ' . g:esc_mapping . ' <esc>'
 inoremap <esc> <nop>
 
 " Searching {{{2
@@ -642,7 +643,7 @@ func! Multiple_cursors_before()
   else
     let g:ycm_is_enable_before_multi_cursors = 0
   endif
-  iunmap ne
+  execute ':iunmap ' . g:esc_mapping
 endfunction
 
 func! Multiple_cursors_after()
@@ -651,7 +652,7 @@ func! Multiple_cursors_after()
   else
     let g:ycm_auto_trigger = 0
   endif
-  inoremap ne <esc>
+  execute ':inoremap ' . g:esc_mapping . ' <esc>'
 endfunction
 
 " Tabularize {{{2
