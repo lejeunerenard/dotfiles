@@ -1,5 +1,6 @@
 # Path to your oh-my-zsh configuration.
 HOMESHICK_REPOS=$HOME/.homesick/repos
+DOTFILES=$HOMESHICK_REPOS/dotfiles
 ZSH=$HOMESHICK_REPOS/oh-my-zsh
 
 # Oh My Zsh Plugins
@@ -13,13 +14,19 @@ setopt interactivecomments
 
 setopt extendedglob
 
+# Auto Setup TERMINFO
+if [ ! -d $HOME/.terminfo ]; then
+  echo 'Compiling terminfo'
+  source $DOTFILES/compile-terminfo.sh
+fi
+
 # Include custom theme
 # Override default $HOME/.hostAliases
 #HOST_ALIASES=$HOME/.aliashost
-source $HOMESHICK_REPOS/dotfiles/themes/ljr.zsh-theme
+source $DOTFILES/themes/ljr.zsh-theme
 
 # ===== Environmental variables =====
-source "$HOMESHICK_REPOS/dotfiles/pathadd.zsh"
+source "$DOTFILES/pathadd.zsh"
 
 # Customize items
 pathadd "/bin"
@@ -50,7 +57,6 @@ export EDITOR="vim"
 alias ll='ls -al'
 alias la='ls -A'
 
-alias tmux="TERM=screen-256color-bce tmux"
 alias today='date +%Y-%m-%d'
 
 # Git alias
@@ -137,7 +143,7 @@ fi
 
 # nvm
 if [ -d $HOME/.nvm ]; then
-  source "$HOMESHICK_REPOS/dotfiles/load-nvm.sh"
+  source "$DOTFILES/load-nvm.sh"
 
   autoload -U add-zsh-hook
   load-nvmrc() {
