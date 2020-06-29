@@ -58,6 +58,7 @@ alias ll='ls -al'
 alias la='ls -A'
 
 alias today='date +%Y-%m-%d'
+alias ssh='TERM=xterm-256color ssh'
 
 # Git alias
 alias gdc="git diff --cached"
