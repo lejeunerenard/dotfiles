@@ -302,7 +302,7 @@ nnoremap <leader>gs :Gst<CR>
 " TODO test for colemak first before setting `ne` vs `jk`. Also figureout how
 " to then set all instances of this mapping correctly throughout setup.
 " inoremap jk <esc>
-let g:esc_mapping = 'ne'
+let g:esc_mapping = 'fp'
 execute ':inoremap ' . g:esc_mapping . ' <esc>'
 inoremap <esc> <nop>
 
