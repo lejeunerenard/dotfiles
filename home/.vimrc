@@ -291,6 +291,7 @@ nnoremap <leader>q :q<CR>
 nnoremap <leader>qq :q!<CR>
 nnoremap <leader>qa :qa!<CR>
 nnoremap <leader>w :w<CR>
+nnoremap <leader>x :x<CR>
 " Git specific commands
 nnoremap <leader>gd :Gd<CR>
 nnoremap <leader>gs :Gst<CR>
