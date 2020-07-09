@@ -300,7 +300,7 @@ nnoremap <leader>gs :Gst<CR>
 " set shell=bash\ -i
 
 " Modes {{{2
-" TODO test for colemak first before setting `ne` vs `jk`. Also figureout how
+" TODO test for colemak first before setting `fp` vs `jk`. Also figureout how
 " to then set all instances of this mapping correctly throughout setup.
 " inoremap jk <esc>
 let g:esc_mapping = 'fp'
@@ -630,7 +630,7 @@ let g:multi_cursor_use_default_mapping=0
 let g:multi_cursor_next_key = '<C-g>'
 let g:multi_cursor_prev_key = '<C-p>'
 let g:multi_cursor_skip_key = '<C-x>'
-let g:multi_cursor_quit_key = 'ne'
+let g:multi_cursor_quit_key = g:esc_mapping
 " Map start key the same as the next key
 let g:multi_cursor_start_key = '<C-g>'
 let g:multi_cursor_exit_from_visual_mode = 1
