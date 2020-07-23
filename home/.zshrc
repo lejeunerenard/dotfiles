@@ -159,9 +159,11 @@ if [ -d $HOME/.nvm ]; then
 
   # Else autoload current version of node
   getStableNodeVersionDir() {
+    STABLE_MAJOR=12
+    STABLE_MINOR=16
     NVM_DIR=$HOME/.nvm
-    PATTERN='8.9*'
-    SEARCH_PATTERN='8\.9'
+    PATTERN="$STABLE_MAJOR.$STABLE_MINOR*"
+    SEARCH_PATTERN="$STABLE_MAJOR\\.$STABLE_MINOR"
     NVM_DIRS_TO_SEARCH=$NVM_DIR/versions/node
     NVM_NODE_PREFIX="node"
     # source: nvm
