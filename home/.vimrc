@@ -44,6 +44,8 @@ Plug 'sjl/gundo.vim', { 'on': 'GundoShow'}
 Plug 'terryma/vim-multiple-cursors'
 
 " Formatting
+let g:ale_completion_enabled = 1
+let g:ale_completion_tsserver_autoimport = 1
 Plug 'dense-analysis/ale'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'godlygeek/tabular'
@@ -63,10 +65,10 @@ if v:version > 703 || (v:version == 703 && has('patch584'))
   Plug 'Valloric/YouCompleteMe', { 'on': [], 'do': './install.py --tern-completer' }
 endif
 
-augroup load_us_ycm
+augroup load_snippet_autocomplete
   autocmd!
-  autocmd InsertEnter * call plug#load('ultisnips', 'vim-snippets', 'YouCompleteMe')
-                     \| autocmd! load_us_ycm
+  autocmd InsertEnter * call plug#load('ultisnips', 'vim-snippets')
+                     \| autocmd! load_snippet_autocomplete
 augroup END
 
 " Searching
@@ -419,16 +421,6 @@ let g:unite_force_overwrite_statusline = 0
 let g:vimfiler_force_overwrite_statusline = 0
 let g:vimshell_force_overwrite_statusline = 0
 
-" YouCompleteMe {{{2
-
-" Completion tweaks
-let g:ycm_filepath_completion_use_working_dir = 1
-
-" make YCM compatible with UltiSnips (using supertab)
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-let g:SuperTabDefaultCompletionType = '<C-n>'
-
 " UltiSnips {{{2
 " better key bindings for UltiSnipsExpandTrigger
 let g:UltiSnipsExpandTrigger = "<tab>"
@@ -525,6 +517,13 @@ nmap cd viW<Tab>dumper<Tab>
 
 let g:ale_lint_delay = 10
 let g:ale_sign_column_always = 1
+let g:ale_fix_on_save = 1
+
+map gd :ALEGoToDefinition<CR>
+
+" Autocompletion
+let g:ale_completion_autoimport = 1
+set omnifunc=ale#completion#OmniFunc
 
 function! DetectJSLinter(cb)
   let Callback = function(a:cb)
@@ -551,9 +550,8 @@ function! DetectJSLinterSync()
   return jsmodules
 endfunction
 
-let g:ale_linters = {
-\   'javascript': ['standard'],
-\   'javascript.jsx': ['standard'],
+let g:ale_fixers = {
+\   'javascript': ['eslint']
 \}
 let g:ale_javascript_eslint_executable = 'eslint_d'
 
@@ -572,10 +570,10 @@ function! DetermineALEJSLinter()
   call DetectJSLinter('SetALEJSLinter')
 endfunction
 
-augroup FiletypeGroup
-  autocmd!
-  au BufNewFile,BufRead *.js,*.jsx :call DetermineALEJSLinter()
-augroup END
+" augroup FiletypeGroup
+"   autocmd!
+"   au BufNewFile,BufRead *.js,*.jsx :call DetermineALEJSLinter()
+" augroup END
 
 highlight ALEStyleWarning ctermfg=Black
 highlight ALEStyleWarning ctermbg=Yellow
