@@ -28,6 +28,15 @@ source $DOTFILES/themes/ljr.zsh-theme
 # ===== Environmental variables =====
 source "$DOTFILES/pathadd.zsh"
 
+# Wipe out PATH w/ system default
+# Copied from /etc/zprofile on MacOS 10.15.6
+# TODO Decide if this is problematic for sub-shells as no inheritance is
+# possible.
+if [ -x /usr/libexec/path_helper ]; then
+  PATH=''
+  eval `/usr/libexec/path_helper -s`
+fi
+
 # Customize items
 pathadd "/bin"
 pathadd "/sbin"
