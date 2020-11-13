@@ -67,16 +67,19 @@ if [ -d $HOME/perl5/lib/perl5 ]; then
 fi
 
 # Plenv setup
-if hash plenv 2>/dev/null && [ -d $HOME/.plenv/bin ]; then
-  pathadd "$HOME/.plenv/bin"
+if hash plenv 2>/dev/null; then
+  if [ -d $HOME/.plenv/bin ]; then
+    pathadd "$HOME/.plenv/bin"
+  fi
   pathadd "$HOME/.plenv/shims"
 
   # Source: `plenv init -`
   # Removed the duplicate PATH addition to avoid compounding PATH paths
   export PLENV_SHELL=zsh
-  source "$HOME/.plenv/libexec/../completions/plenv.zsh"
+  source $(brew --prefix plenv)"/libexec/../completions/plenv.zsh"
   plenv() {
     local command
+
     command="$1"
     if [ "$#" -gt 0 ]; then
       shift
