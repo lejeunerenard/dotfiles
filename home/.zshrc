@@ -52,64 +52,18 @@ if [ -f $HOME/.exports ]; then
   source $HOME/.exports
 fi
 
-# Perl local::lib
-# if not already concatenated, concatenate
-if [[ ":${PERL5LIB}:" != *:"$HOME/perl5/lib/perl5":*  ]]; then
-  export PERL5LIB=$HOME/perl5/lib/perl5:$PERL5LIB
-  pathadd "$HOME/perl5/bin"
-fi
-
-# Editor
-export EDITOR="vim"
-
-# Aliases
-alias ll='ls -al'
-alias la='ls -A'
-
-alias today='date +%Y-%m-%d'
-alias ssh='TERM=xterm-256color ssh'
-
-# Git alias
-alias gdc="git diff --cached"
-alias s="git status -s"
-
-# Add jiffy alias if able
-if hash jiffy 2>/dev/null; then
-  alias j='jiffy'
-  alias jiffy-delete-last='mongo jiffy --eval "db.timeEntry.findAndModify({ query: {}, sort: {\"_id\": -1}, remove: true })"'
-  alias c='jiffy current'
-  alias jd='jiffy done'
-  alias jt='jiffy timesheet'
-
-  function jiffy-change-last () {
-    CMD='db.timeEntry.findAndModify({ query: {}, sort: {"_id": -1}, update: {$set:{"title":"'"$@"'"}} })'
-    mongo jiffy --eval $CMD
-  }
-
-  alias jel="jiffy-change-last"
-fi
-
-function daily-uniq () {
-  cd $HOME/raymarch
-  git log -p -G "\"?name\"?:\s+['\"].*$1.*['\"]"
-}
-
-source $HOMESHICK_REPOS/homeshick/homeshick.sh
-
-# Setup Z
-source $HOME/.homesick/repos/z/z.sh
-
-# Setup k
-if [ -d $HOME/.homesick/repos/k ]; then
-  source $HOME/.homesick/repos/k/k.sh
-  alias k='k -A';
-fi
-
-fpath=($HOMESHICK_REPOS/homeshick/completions $fpath)
-
 # On mac for brew
 if [[ $OSTYPE == "darwin"* ]]; then
   pathadd "/usr/local/bin"
+fi
+
+# Perl local::lib
+# if not already concatenated, concatenate
+if [ -d $HOME/perl5/lib/perl5 ]; then
+  if [[ ":${PERL5LIB}:" != *:"$HOME/perl5/lib/perl5":*  ]]; then
+    export PERL5LIB=$HOME/perl5/lib/perl5:$PERL5LIB
+  fi
+  pathadd "$HOME/perl5/bin"
 fi
 
 # Plenv setup
@@ -136,7 +90,6 @@ if hash plenv 2>/dev/null && [ -d $HOME/.plenv/bin ]; then
     esac
   }
 fi
-
 # Rbenv setup
 if hash rbenv 2>/dev/null && [ -d $HOME/.rbenv/bin ]; then
   pathadd "$HOME/.rbenv/bin"
@@ -205,12 +158,6 @@ if [ -d $HOME/.nvm ]; then
   load-nvmrc
 fi
 
-# make it easier to run things in node_modules
-if hash npm 2>/dev/null; then
-   alias npm-exec='env PATH="$(npm bin):$PATH"'
-   alias ne='npm-exec'
-fi
-
 # PHP {{{
 [[ -e $HOME/.phpbrew/bashrc  ]] && source $HOME/.phpbrew/bashrc
 export PHPBREW_RC_ENABLE=1
@@ -220,6 +167,61 @@ export PHPBREW_RC_ENABLE=1
 if test -d $HOME/.rakudobrew; then
   pathadd "$HOME/.rakudobrew/bin"
 fi
+
+# Aliases
+alias ll='ls -al'
+alias la='ls -A'
+
+alias today='date +%Y-%m-%d'
+alias ssh='TERM=xterm-256color ssh'
+
+# Git alias
+alias gdc="git diff --cached"
+alias s="git status -s"
+
+function daily-uniq () {
+  cd $HOME/raymarch
+  git log -p -G "\"?name\"?:\s+['\"].*$1.*['\"]"
+}
+
+source $HOMESHICK_REPOS/homeshick/homeshick.sh
+
+# Setup Z
+source $HOME/.homesick/repos/z/z.sh
+
+# Setup k
+if [ -d $HOME/.homesick/repos/k ]; then
+  source $HOME/.homesick/repos/k/k.sh
+  alias k='k -A';
+fi
+
+fpath=($HOMESHICK_REPOS/homeshick/completions $fpath)
+
+# Editor
+export EDITOR="vim"
+
+# make it easier to run things in node_modules
+if hash npm 2>/dev/null; then
+   alias npm-exec='env PATH="$(npm bin):$PATH"'
+   alias ne='npm-exec'
+fi
+
+# Add jiffy alias if able
+if hash jiffy 2>/dev/null; then
+  alias j='jiffy'
+  alias jiffy-delete-last='mongo jiffy --eval "db.timeEntry.findAndModify({ query: {}, sort: {\"_id\": -1}, remove: true })"'
+  alias c='jiffy current'
+  alias jd='jiffy done'
+  alias jt='jiffy timesheet'
+
+  function jiffy-change-last () {
+    CMD='db.timeEntry.findAndModify({ query: {}, sort: {"_id": -1}, update: {$set:{"title":"'"$@"'"}} })'
+    mongo jiffy --eval $CMD
+  }
+
+  alias jel="jiffy-change-last"
+fi
+
 
 # Don't rename the window
 export DISABLE_AUTO_TITLE=true
