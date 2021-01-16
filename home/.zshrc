@@ -216,6 +216,7 @@ if hash jiffy 2>/dev/null; then
   alias c='jiffy current'
   alias jd='jiffy done'
   alias jt='jiffy timesheet'
+  alias js='jiffy search'
 
   function jiffy-change-last () {
     CMD='db.timeEntry.findAndModify({ query: {}, sort: {"_id": -1}, update: {$set:{"title":"'"$@"'"}} })'
