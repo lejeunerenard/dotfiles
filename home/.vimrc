@@ -91,6 +91,9 @@ Plug 'jelera/vim-javascript-syntax', { 'for': 'javascript' }
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'marijnh/tern_for_vim', { 'do': 'npm install', 'for': 'javascript' }
 
+" TypeScript
+Plug 'leafgarland/typescript-vim'
+
 " GLSL
 Plug 'tikhomirov/vim-glsl', { 'for': 'glsl' }
 
