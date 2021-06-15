@@ -98,6 +98,7 @@ Plug 'tikhomirov/vim-glsl', { 'for': 'glsl' }
 if s:darwin
    Plug 'junegunn/vim-xmark', { 'do': 'make', 'for': 'markdown'  }
 endif
+Plug 'plasticboy/vim-markdown', { 'for': 'markdown'  }
 
 " Elixir
 Plug 'elixir-editors/vim-elixir'
@@ -596,9 +597,16 @@ endif
 let g:instant_markdown_autostart = 0
 let g:instant_markdown_slow = 1
 
+"vim-markdown
+let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_strikethrough = 1
+let g:vim_markdown_new_list_item_indent = 0
+let g:vim_markdown_fenced_languages = ['c++=cpp', 'viml=vim', 'bash=sh', 'ini=dosini', 'js=javascript']
+
 augroup markdownSettings
    autocmd!
    autocmd FileType markdown setl tw=80
+   autocmd FileType markdown setl conceallevel=2
 augroup END
 
 " Vimux {{{2
