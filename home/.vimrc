@@ -554,13 +554,13 @@ endfunction
 let g:ale_fixers = {
 \   'javascript': ['eslint']
 \}
-let g:ale_javascript_eslint_executable = 'eslint_d'
+" let g:ale_javascript_eslint_executable = 'eslint_d'
 
 function! SetALEJSLinter(linter)
   if a:linter == 'eslint'
     let b:ale_linters = { 'javascript': ['eslint'], 'javascript.jsx': ['eslint'] }
-    let g:ale_javascript_eslint_use_global = 1
-    let g:ale_javascript_eslint_executable = 'eslint_d'
+    " let g:ale_javascript_eslint_use_global = 1
+    " let g:ale_javascript_eslint_executable = 'eslint_d'
   elseif a:linter == 'jshint'
     let b:ale_linters = { 'javascript': ['jshint'], 'javascript.jsx': ['jshint'] }
   elseif a:linter == 'standard'
