@@ -26,9 +26,6 @@ Plug 'benmills/vimux', { 'on': [
   \'VimuxRunLastCommand', 'VimuxPromptCommand', 'VimuxSetPane'] }
 Plug 'junegunn/vim-peekaboo'
 
-" Writing
-Plug 'junegunn/goyo.vim'
-
 " Version control
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
@@ -77,6 +74,11 @@ Plug 'mileszs/ack.vim', { 'on': 'Ack' }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --no-bash' }
 Plug 'junegunn/fzf.vim'
 Plug 'pbogut/fzf-mru.vim'
+
+" Writing
+Plug 'junegunn/goyo.vim'
+Plug 'vimwiki/vimwiki', { 'for': 'markdown' }
+Plug 'michal-h21/vim-zettel'
 
 " Language specific
 " Vimscript
@@ -670,6 +672,9 @@ map <Leader>t :Tabularize /<bar><CR>
 
 " Titlecase {{{2
 let g:titlecase_map_keys = 0
+
+" VimWiki {{{2
+let g:vimwiki_list = [{'path': '~/knowledge-base/', 'syntax': 'markdown', 'ext': '.md'}]
 
 " --- Language Settings --- {{{1
 
