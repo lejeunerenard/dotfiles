@@ -99,6 +99,10 @@ Plug 'leafgarland/typescript-vim'
 " GLSL
 Plug 'tikhomirov/vim-glsl', { 'for': 'glsl' }
 
+"LISP / Clojure
+Plug 'guns/vim-sexp', { 'for': ['clojure', 'clojurescript'] }
+Plug 'liquidz/vim-iced', { 'for': ['clojure', 'clojurescript'] }
+
 " Markdown
 if s:darwin
    Plug 'junegunn/vim-xmark', { 'do': 'make', 'for': 'markdown'  }
@@ -807,3 +811,7 @@ augroup dailyHelpers
 augroup END
 
 autocmd FileType glsl setlocal commentstring=//\ %s
+
+" Clojure {{{2
+" Iced {{{3
+let g:iced_enable_default_key_mappings = v:true

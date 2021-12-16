@@ -161,6 +161,12 @@ if [ -d $HOME/.nvm ]; then
   load-nvmrc
 fi
 
+# Clojure(script)
+# Iced
+if [ -d $HOME/.vim/plugged/vim-iced/bin ]; then
+  pathadd $HOME/.vim/plugged/vim-iced/bin
+fi
+
 # Load Nix
 if [ -d $HOME/.nix-profile/ ]; then
   source /Users/seanzellmer/.nix-profile/etc/profile.d/nix.sh
