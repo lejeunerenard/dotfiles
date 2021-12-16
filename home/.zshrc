@@ -195,7 +195,7 @@ alias s="git status -s"
 
 function daily-uniq () {
   cd $HOME/raymarch
-  git log -p -i -G "\"?name\"?:\s+['\"].*$1.*['\"]" | grep -i --color=never "\\+.*\s\"\?name\"\?:\s\+['\"].*$1.*['\"]" | perl -ne "print \$1.\"\n\" if /:\s*['\"](.*?)(?:-render\d|-test\d)?+['\"]/"
+  git log -p -i -G "\"?name\"?:\s+['\"].*$1.*['\"]" | grep -i --color=never "\\+.*\s*\"\?name\"\?:\s\+['\"].*$1.*['\"]" | perl -ne "print \$1.\"\n\" if /:\s*['\"](.*?)(?:-render\d|-test\d)?+['\"]/"
 }
 
 source $HOMESHICK_REPOS/homeshick/homeshick.sh
