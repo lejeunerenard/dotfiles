@@ -283,7 +283,10 @@ set showcmd
 let mapleader = " "
 
 " Disable preview autocomplete
-set completeopt=menu,menuone,popup,noselect,noinsert
+set completeopt=menu,menuone,noselect,noinsert
+if !has('nvim')
+  set completeopt+=popup
+endif
 
 " Edit vimrc
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
