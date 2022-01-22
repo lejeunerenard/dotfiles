@@ -266,6 +266,7 @@ endfunction
 syntax on
 set number
 set relativenumber
+set cursorline cursorcolumn
 filetype on
 set splitright " Natural vertical splitting
 set spell
