@@ -684,6 +684,9 @@ let g:titlecase_map_keys = 0
 
 " VimWiki {{{2
 let g:vimwiki_list = [{'path': '~/knowledge-base/', 'syntax': 'markdown', 'ext': '.md'}]
+let g:vimwiki_key_mappings = {
+\  'global': 0
+\}
 
 " --- Language Settings --- {{{1
 
