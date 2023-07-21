@@ -124,7 +124,7 @@ if [ -d $HOME/.nvm ]; then
 
   # Else autoload current version of node
   getStableNodeVersionDir() {
-    STABLE_MAJOR=12
+    STABLE_MAJOR=18
     STABLE_MINOR=16
     NVM_DIR=$HOME/.nvm
     PATTERN="$STABLE_MAJOR.$STABLE_MINOR*"
