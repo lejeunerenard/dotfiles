@@ -6,6 +6,9 @@ ZSH=$HOMESHICK_REPOS/oh-my-zsh
 # Oh My Zsh Plugins
 plugins=(gitfast git cpanm perl bower github vagrant npm node nvm gitignore)
 
+# Oh My Zsh : Plugin Config
+zstyle ':omz:plugins:nvm' lazy yes
+
 source $ZSH/oh-my-zsh.sh
 
 # ZSH config
