@@ -234,7 +234,11 @@ if hash jiffy 2>/dev/null; then
 
   function jiffy-change-last () {
     CMD='db.timeEntry.findAndModify({ query: {}, sort: {"_id": -1}, update: {$set:{"title":"'"$@"'"}} })'
-    mongo jiffy --eval $CMD
+    if hash mongo 2>/dev/null; then
+      mongo jiffy --eval $CMD
+    else
+      mongosh jiffy --eval $CMD
+    fi
   }
 
   alias jel="jiffy-change-last"
