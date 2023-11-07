@@ -91,7 +91,7 @@ Plug 'c9s/perlomni.vim', { 'for': 'perl' }
 " JS
 Plug 'jelera/vim-javascript-syntax', { 'for': 'javascript' }
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
-Plug 'marijnh/tern_for_vim', { 'do': 'npm install', 'for': 'javascript' }
+" Plug 'marijnh/tern_for_vim', { 'do': 'npm install', 'for': 'javascript' }
 
 " TypeScript
 Plug 'leafgarland/typescript-vim'
