@@ -287,8 +287,8 @@ fi
 
 # FZF
 if type fzf > /dev/null; then
-  # Load key bindings assuming that fzf was installed with brew
-  . $(brew --prefix)/opt/fzf/shell/key-bindings.zsh
+  # Load key bindings
+  [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
   if type bat > /dev/null; then
     fzf_find_edit() {
