@@ -101,7 +101,7 @@ Plug 'tikhomirov/vim-glsl', { 'for': 'glsl' }
 
 "LISP / Clojure
 Plug 'guns/vim-sexp', { 'for': ['clojure', 'clojurescript'] }
-Plug 'liquidz/vim-iced', { 'for': ['clojure', 'clojurescript'] }
+Plug 'liquidz/vim-iced', { 'branch': 'main', 'for': ['clojure', 'clojurescript'] }
 
 " Markdown
 if s:darwin
