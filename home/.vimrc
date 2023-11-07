@@ -310,7 +310,7 @@ nnoremap <leader>w :w<CR>
 nnoremap <leader>x :x<CR>
 " Git specific commands
 nnoremap <leader>gd :Gd<CR>
-nnoremap <leader>gs :Gst<CR>
+nnoremap <leader>gs :Git<CR>
 
 " Shell config
 " set shell=bash\ -i
