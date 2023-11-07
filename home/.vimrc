@@ -71,7 +71,7 @@ augroup END
 " Searching
 Plug 'vim-scripts/taglist.vim'
 Plug 'mileszs/ack.vim', { 'on': 'Ack' }
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --no-bash' }
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'pbogut/fzf-mru.vim'
 
