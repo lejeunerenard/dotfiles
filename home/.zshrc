@@ -328,6 +328,13 @@ if [ -d $HOME/Library/Android ]; then
 
    # The next line enables shell command completion
    source "$HOME/google-cloud-sdk/completion.zsh.inc"
+
+   # Android studio
+   export ANDROID_HOME=$HOME/Library/Android/sdk
+
+   pathadd $ANDROID_HOME/emulator
+   pathadd $ANDROID_HOME/platform-tools
+   # pathadd /usr/local/opt/openjdk/bin
 fi
 
 # Modular zsh loading per machine
