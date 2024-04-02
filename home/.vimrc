@@ -90,6 +90,7 @@ Plug 'c9s/perlomni.vim', { 'for': 'perl' }
 
 " JS
 Plug 'jelera/vim-javascript-syntax', { 'for': 'javascript' }
+Plug 'evanleck/vim-svelte'
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 " Plug 'marijnh/tern_for_vim', { 'do': 'npm install', 'for': 'javascript' }
 
