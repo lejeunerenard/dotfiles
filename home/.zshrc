@@ -176,6 +176,11 @@ if [ -d $HOME/.nvm ]; then
   load-nvmrc
 fi
 
+# Pear Platform
+if [ -d "$HOME/Library/Application Support/pear/bin" ]; then
+  pathadd "$HOME/Library/Application Support/pear/bin"
+fi
+
 # Clojure(script)
 # Iced
 if [ -d $HOME/.vim/plugged/vim-iced/bin ]; then

@@ -117,3 +117,6 @@ source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 
 # DBICM Wrapper
 . $HOME/.homesick/repos/dbic-migration-env/dbicm-env.sh
+
+# Added by Pear Runtime, configures system with Pear CLI
+export PATH="$HOME/Library/Application Support/pear/bin":$PATH
