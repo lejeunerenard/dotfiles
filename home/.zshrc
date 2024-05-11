@@ -19,6 +19,9 @@ plugins=(
 )
 
 # Oh My Zsh : Plugin Config
+zstyle ':omz:plugins:nvm' autoload yes
+zstyle ':omz:plugins:nvm' silent-autoload yes # Remove output from nvm when changing versions
+zstyle ':omz:plugins:nvm' lazy-cmd bare
 zstyle ':omz:plugins:nvm' lazy yes
 
 source $ZSH/oh-my-zsh.sh
