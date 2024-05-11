@@ -139,11 +139,8 @@ if [ -d $HOME/.nvm ]; then
 
   # Else autoload current version of node
   getStableNodeVersionDir() {
-    STABLE_MAJOR=18
-    STABLE_MINOR=16
     NVM_DIR=$HOME/.nvm
-    PATTERN="$STABLE_MAJOR.$STABLE_MINOR*"
-    SEARCH_PATTERN="$STABLE_MAJOR\\.$STABLE_MINOR"
+    SEARCH_PATTERN=".*"
     NVM_DIRS_TO_SEARCH=$NVM_DIR/versions/node
     NVM_NODE_PREFIX="node"
     # source: nvm
@@ -161,7 +158,22 @@ if [ -d $HOME/.nvm ]; then
       | command sed -e 's#\(.*\)\.\([^\.]\{1,\}\)$#\2-\1#;' \
                     -e "s#^${NVM_NODE_PREFIX}-##;" \
     )"
-    DIR=$NVM_DIRS_TO_SEARCH/$VERSIONS
+    setopt local_options shwordsplit
+    LAST_TWO=$(echo $VERSIONS | cut -c2-)
+    local MINOR
+    local STABLE
+    for MINOR in $LAST_TWO; do
+      NORMALIZED_VERSION=$MINOR
+      if [ "_0${NORMALIZED_VERSION#?}" != "_$NORMALIZED_VERSION" ]; then
+        STABLE="$MINOR"
+      else
+        MOD="$(awk 'BEGIN { print int(ARGV[1] / 1000000) % 2 ; exit(0) }' "${NORMALIZED_VERSION}")"
+        if [ "${MOD}" -eq 0 ]; then
+          STABLE="${MINOR}"
+        fi
+      fi
+    done
+    DIR=$NVM_DIRS_TO_SEARCH/$STABLE
     echo $DIR
   }
   setNodeToStableVersion() {
