@@ -64,6 +64,7 @@ pathadd "/usr/local/sbin"
 pathadd "/usr/local/bin"
 pathadd "/usr/lib/lightdm/lightdm"
 pathadd "$HOME/bin"
+pathadd "$HOME/.local/bin"
 
 # Local exports
 if [ -f $HOME/.exports ]; then
