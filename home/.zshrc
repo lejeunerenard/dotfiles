@@ -197,6 +197,12 @@ if [ -d "$HOME/Library/Application Support/pear/bin" ]; then
   pathadd "$HOME/Library/Application Support/pear/bin"
 fi
 
+# Deno
+export DENO_INSTALL="/Users/seanzellmer/.deno"
+if [ -d "$DENO_INSTALL" ]; then
+  pathadd "$DENO_INSTALL/bin" 
+fi
+
 # Clojure(script)
 # Iced
 if [ -d $HOME/.vim/plugged/vim-iced/bin ]; then
