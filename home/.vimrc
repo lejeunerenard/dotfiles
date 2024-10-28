@@ -534,6 +534,9 @@ let g:ale_lint_delay = 10
 let g:ale_sign_column_always = 1
 let g:ale_fix_on_save = 1
 
+" Mouse settings
+set mouse=a
+
 map gd :ALEGoToDefinition<CR>
 map gfr :ALEFindReferences<CR>
 
