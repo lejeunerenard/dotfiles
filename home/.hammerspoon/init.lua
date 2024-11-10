@@ -1,3 +1,4 @@
+require('hs.ipc')
 hs.loadSpoon('SpoonInstall')
 require('instant-layout')
 
