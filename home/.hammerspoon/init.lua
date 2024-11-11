@@ -23,3 +23,19 @@ function layoutRocketLeague (sessionName)
   }
   instantlayoutApply(windowLayout, plainTextMatch)
 end
+
+-- Shortcuts
+function focusWindow ()
+  local currentWin = hs.window.focusedWindow()
+
+  local wins = hs.window.visibleWindows()
+  for _, win in ipairs(wins) do
+    if win ~= currentWin then
+      win:application():hide()
+    end
+  end
+end
+
+hs.hotkey.bind({"cmd", "shift"}, "H", function()
+  focusWindow()
+end)
