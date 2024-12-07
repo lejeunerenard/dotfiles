@@ -555,6 +555,12 @@ nnoremap <leader>h :ALEHover<CR>
 let g:ale_completion_autoimport = 1
 set omnifunc=ale#completion#OmniFunc
 
+" Temporary disabling of deno lining
+" TODO Figure out how to detect if in a deno project in order to use deno
+" linter
+" TODO Figure out how to properly use ftplugin files
+let g:ale_linters_ignore = {'javascript': ['deno'], 'typescript': ['deno']}
+
 highlight ALEStyleWarning ctermfg=Black
 highlight ALEStyleWarning ctermbg=Yellow
 highlight ALEWarning ctermfg=Black
