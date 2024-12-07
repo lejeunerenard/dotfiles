@@ -49,6 +49,10 @@ Plug 'godlygeek/tabular'
 Plug 'tpope/vim-commentary'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'keith/investigate.vim' " Documentation Lookup
+" post install (yarn install | npm install) then load plugin only for editing supported files
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'npm install --frozen-lockfile --production',
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }
 
 " Snippets & completion
 Plug 'SirVer/ultisnips', { 'on': [] }
