@@ -109,9 +109,7 @@ Plug 'guns/vim-sexp', { 'for': ['clojure', 'clojurescript'] }
 Plug 'liquidz/vim-iced', { 'branch': 'main', 'for': ['clojure', 'clojurescript'] }
 
 " Markdown
-if s:darwin
-   Plug 'junegunn/vim-xmark', { 'do': 'make', 'for': 'markdown'  }
-endif
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' }
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown'  }
 
 " Elixir
