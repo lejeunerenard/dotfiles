@@ -113,6 +113,9 @@ Plug 'plasticboy/vim-markdown', { 'for': 'markdown'  }
 " Elixir
 Plug 'elixir-editors/vim-elixir'
 
+" Bats
+Plug 'aliou/bats.vim'
+
 " All of your Plugins must be added before the following line
 call plug#end()
 
