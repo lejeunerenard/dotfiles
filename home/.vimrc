@@ -555,56 +555,6 @@ nnoremap <leader>h :ALEHover<CR>
 let g:ale_completion_autoimport = 1
 set omnifunc=ale#completion#OmniFunc
 
-function! DetectJSLinter(cb)
-  let Callback = function(a:cb)
-  if v:version < 800
-    let detectedJSLinter = DetectJSLinterSync()
-    return Callback(detectedJSLinter)
-  else
-    call DetectJSLinterAsync(Callback)
-  endif
-endfunction
-
-function! DetectJSLinterAsyncCB(channel, msg)
-  " Get STDOUT
-  let linter = a:msg
-  call g:Js_lint_async(linter)
-endfunction
-
-function! DetectJSLinterAsync(cb)
-  let g:Js_lint_async = a:cb
-  call job_start(['node', $HOME . '/bin/detect-js-linter.js'], {'out_cb': 'DetectJSLinterAsyncCB'})
-endfunction
-function! DetectJSLinterSync()
-  let jsmodules = system("node " . $HOME . "/bin/detect-js-linter.js")
-  return jsmodules
-endfunction
-
-let g:ale_fixers = {
-\   'javascript': ['eslint']
-\}
-" let g:ale_javascript_eslint_executable = 'eslint_d'
-
-function! SetALEJSLinter(linter)
-  if a:linter == 'eslint'
-    let b:ale_linters = { 'javascript': ['eslint'], 'javascript.jsx': ['eslint'] }
-    " let g:ale_javascript_eslint_use_global = 1
-    " let g:ale_javascript_eslint_executable = 'eslint_d'
-  elseif a:linter == 'jshint'
-    let b:ale_linters = { 'javascript': ['jshint'], 'javascript.jsx': ['jshint'] }
-  elseif a:linter == 'standard'
-    let b:ale_linters = { 'javascript': ['standard'] }
-  endif
-endfunction
-function! DetermineALEJSLinter()
-  call DetectJSLinter('SetALEJSLinter')
-endfunction
-
-" augroup FiletypeGroup
-"   autocmd!
-"   au BufNewFile,BufRead *.js,*.jsx :call DetermineALEJSLinter()
-" augroup END
-
 highlight ALEStyleWarning ctermfg=Black
 highlight ALEStyleWarning ctermbg=Yellow
 highlight ALEWarning ctermfg=Black
