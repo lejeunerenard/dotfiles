@@ -6,6 +6,10 @@ if s:darwin
 endif
 
 " --- Plugins --- {{{1
+" " Not sure why this `filetype plugin on` was added. So I commented it out to
+" figure out what's "missing"
+" filetype plugin on
+
 if has('win32')
   call plug#begin('~/vimfiles/plugged')
 else
