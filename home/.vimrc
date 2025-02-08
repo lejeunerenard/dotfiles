@@ -561,6 +561,9 @@ set omnifunc=ale#completion#OmniFunc
 " TODO Figure out how to properly use ftplugin files
 let g:ale_linters_ignore = {'javascript': ['deno'], 'typescript': ['deno']}
 
+" Report linter in error message for better debugging of linting errors
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+
 highlight ALEStyleWarning ctermfg=Black
 highlight ALEStyleWarning ctermbg=Yellow
 highlight ALEWarning ctermfg=Black
