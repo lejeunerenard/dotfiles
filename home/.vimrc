@@ -66,9 +66,6 @@ if !has('python3')
    Plug 'garbas/vim-snipmate'
 endif
 Plug 'honza/vim-snippets', { 'on': [] }
-if v:version > 703 || (v:version == 703 && has('patch584'))
-  Plug 'Valloric/YouCompleteMe', { 'on': [], 'do': './install.py --tern-completer' }
-endif
 
 augroup load_snippet_autocomplete
   autocmd!
