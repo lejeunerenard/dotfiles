@@ -559,7 +559,7 @@ set omnifunc=ale#completion#OmniFunc
 let g:ale_linters_ignore = {'javascript': ['deno'], 'typescript': ['deno']}
 
 " Report linter in error message for better debugging of linting errors
-let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:ale_echo_msg_format = '[%linter%][%severity%] %code: %%s'
 
 highlight ALEStyleWarning ctermfg=Black
 highlight ALEStyleWarning ctermbg=Yellow
