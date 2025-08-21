@@ -46,6 +46,7 @@ Plug 'terryma/vim-multiple-cursors'
 
 " Formatting
 let g:ale_completion_enabled = 1
+" TODO This was disable but sounds useful. So if importing in js/ts is weird, remove it
 let g:ale_completion_tsserver_autoimport = 1
 Plug 'dense-analysis/ale'
 Plug 'editorconfig/editorconfig-vim'
