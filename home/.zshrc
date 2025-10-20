@@ -242,9 +242,6 @@ function daily-uniq () {
 
 source $HOMESHICK_REPOS/homeshick/homeshick.sh
 
-# Setup Z
-source $HOME/.homesick/repos/z/z.sh
-
 # Setup k
 if [ -d $HOME/.homesick/repos/k ]; then
   source $HOME/.homesick/repos/k/k.sh
