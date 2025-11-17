@@ -312,7 +312,12 @@ fi
 # FZF
 if type fzf > /dev/null; then
   # Load key bindings
-  [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+  if [ -f $HOME/.fzf.zsh ]; then
+    source $HOME/.fzf.zsh
+  else
+    # Set up fzf key bindings and fuzzy completion (fzf version >= 0.48.0)
+    source <(fzf --zsh)
+  fi
 
   if type bat > /dev/null; then
     fzf_find_edit() {
