@@ -259,6 +259,16 @@ if hash npm 2>/dev/null; then
    alias ne='npm-exec'
 fi
 
+# pnpm
+if [[ $OSTYPE == "darwin"* ]]; then
+  export PNPM_HOME="$HOME/Library/pnpm"
+  case ":$PATH:" in
+    *":$PNPM_HOME:"*) ;;
+    *) export PATH="$PNPM_HOME:$PATH" ;;
+  esac
+fi
+# pnpm end
+
 # Add jiffy alias if able
 if hash jiffy 2>/dev/null; then
   alias j='jiffy'
